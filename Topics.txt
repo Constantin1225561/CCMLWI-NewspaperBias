@@ -1,0 +1,59 @@
+Topic 0:  ['million', 'trump', 'companies', 'new', 'people', 'country', 'world', 'said', 'billion', 'uk', 'two', '1', 'china', 'us', 'money', 'government', 'european', 'years', 'countries', 'says']
+(mostly US) Politics & Finances
+
+Topic 1:  ['scientists', 'researchers', 'life', 'new', 'first', 'found', 'patients', 'health', 'used', 'could', 'time', 'disease', 'find', 'world', 'one', 'blood', 'years', 'treatment', 'us', 'study']
+Science & Research
+
+Topic 2:  ['court', 'new', 'china', 'us', 'media', 'hacking', 'used', 'internet', 'says', 'tools', 'cia', 'rights', 'facebook', 'government', 'users', 'data', 'social', 'online', 'wikileaks', 'access']
+Technology, Cyber Security
+
+Topic 3:  ['korea', 'north', 'us', 'missile', 'u', 'military', 'korean', 'russia', 'south', 'nuclear', 'china', 'russian', 'trump', 'says', 'said', 'test', 'syria', 'weapons', 'navy', 'kim']
+Nuclear Missiles, war
+
+Topic 4:  ['le', 'pen', 'french', 'marine', 'presidential', 'right', 'far', 'macron', 'election', 'candidate', 'france', 'says', 'party', 'fake', 'francois', 'claims', 'russian', 'russia', 'front', 'campaign']
+French Elections
+
+Topic 5:  ['world', 'new', '000', 'china', '1', 'years', 'first', 'india', 'record', 'million', 'people', 'year', 'sea', 'power', '2016', 'says', 'north', '2', 'climate', 'u']
+History, discoveries
+
+Topic 6:  ['japan', 'president', 'trump', 'u', 'china', 'billion', 'us', 'agreed', 'deal', 'end', 'world', 'xi', 'government', 'japanese', 'visit', 'set', 'plan', 'abe', 'european', 'arabia']
+Geopolitics U.S./Europe/Asia
+
+Topic 7:  ['attack', 'police', 'killed', 'isis', 'two', 'old', 'man', 'people', 'suicide', 'said', 'arrested', 'murder', 'us', 'terror', 'suspect', 'killing', 'found', 'year', 'mass', 'says']
+Terror attacks
+
+Topic 8:  ['president', 'turkey', 'turkish', 'trump', 'killed', 'state', 'attack', 'police', 'people', 'anti', 'u', 'syria', 'germany', 'german', 'us', 'russia', 'military', 'russian', 'government', 'isis']
+Something with refugees
+
+Topic 9:  ['court', 'women', 'child', 'law', 'female', 'men', 'first', 'years', 'rights', 'sex', 'marriage', 'gay', 'children', 'government', 'man', 'muslim', 'abuse', 'country', 'year', 'jail']
+Human rights, same-sex marriage, legal issues
+
+Topic 10:  ['uk', 'eu', 'brexit', 'minister', 'says', 'may', 'would', 'prime', 'ban', 'trump', 'theresa', 'election', 'vote', 'party', 'parliament', 'could', 'government', 'new', 'donald', 'bill']
+Politics, elections
+
+Topic 11:  ['israel', 'palestinian', 'un', 'us', 'israeli', 'trump', 'state', 'netanyahu', 'settlement', 'syria', 'u', 'president', 'palestinians', 'assad', 'rights', 'peace', 'n', 'nations', 'settlements', 'human']
+Israel, middle east
+
+Topic 12:  ['billion', 'million', 'company', 'year', 'investigation', '2', 'pay', 'one', 'years', 'bank', '25', '3', '000', '5', 'government', 'day', 'three', 'german', 'last', '12']
+Banks, finances
+
+Topic 13:  ['new', 'scientists', 'study', 'species', 'found', 'researchers', 'finds', 'could', 'research', 'earth', 'ice', 'australia', 'human', 'china', 'last', 'world', 'wild', 'ocean', 'health', 'risk']
+Research & Science
+
+Topic 14:  ['trump', 'donald', 'climate', 'president', 'china', 'u', 'eu', 'deal', 'us', 'change', 'states', 'trade', 'ban', 'canada', 'says', 'call', 'would', 'european', 'united', 'leaders']
+Climate & Trump
+
+Topic 15:  ['pope', 'francis', 'says', 'people', 'uk', 'work', 'staff', 'may', 'mental', 'vatican', 'say', 'go', 'schools', 'russia', 'children', 'teachers', 'church', 'leading', 'men', 'find']
+Vatican, Pope
+
+Topic 16:  ['trump', 'russia', 'russian', 'intelligence', 'former', 'fbi', 'house', 'campaign', 'white', 'officials', 'donald', 'president', 'us', 'director', 'adviser', 'election', 'report', 'hacking', 'government', 'news']
+Security, intelligence, espionage
+
+Topic 17:  ['news', 'facebook', 'fake', 'commission', 'says', 'measure', 'lawsuit', 'bbc', 'parliament', 'royal', 'year', 'aimed', 'publishing', 'police', 'fukushima', 'called', 'show', 'found', 'online', 'abuse']
+Online media & news
+
+Topic 18:  ['navalny', 'leader', 'farage', 'nigel', 'us', 'alexei', 'government', 'new', 'court', 'russian', 'rape', 'accused', 'opposition', 'putin', 'campaign', 'judge', 'lawyers', 'action', 'given', 'change']
+Russia (& Ties with U.S./Farage)
+
+Topic 19:  ['police', 'killed', 'people', 'shot', 'found', 'years', 'death', 'two', 'city', 'dead', 'brazil', 'old', 'year', 'last', 'man', 'gas', 'arrested', 'reported', 'fire', 'south']
+Crime
