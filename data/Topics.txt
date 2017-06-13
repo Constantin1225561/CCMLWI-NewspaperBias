@@ -1,0 +1,59 @@
+Topic 0:  ['election', 'eu', 'brexit', 'vote', 'party', 'president', 'minister', 'uk', 'may', 'parliament', 'presidential', 'theresa', 'says', 'prime', 'european', 'le', 'government', 'would', 'pen', 'french']
+Britain, Brexit, Europe, Elections
+
+Topic 1:  ['russian', 'russia', 'us', 'intelligence', 'trump', 'hacking', 'hackers', 'u', 'attack', 'cyber', 'cia', 'fbi', 'security', 'government', 'former', 'ex', 'spy', 'data', 'says', 'officials']
+Hacking & Russia hacking allegations
+
+Topic 2:  ['world', 'found', 'new', 'australia', 'near', 'north', 'sea', 'years', 'japan', 'plant', 'high', 'ocean', 'fukushima', 'scientists', 'south', 'city', 'fire', 'australian', 'nuclear', 'dead']
+Science
+
+Topic 3:  ['germany', 'party', 'trump', 'right', 'says', 'german', 'nazi', 'world', 'anti', 'social', 'pope', 'new', 'election', 'far', 'brexit', 'leader', 'president', 'french', 'speech', 'saying']
+More europe
+
+Topic 4:  ['first', 'flight', 'china', 'flights', 'new', 'jet', 'air', 'london', 'passengers', 'airport', 'india', 'service', 'aircraft', 'plane', 'passenger', 'longest', 'flying', 'queen', 'test', 'year']
+Airplanes??
+
+Topic 5:  ['china', 'president', 'trade', 'us', 'tpp', 'donald', 'says', 'beijing', 'climate', 'south', 'trump', 'korea', 'u', 'japan', 'taiwan', 'ties', 'xi', 'economic', 'states', 'jinping']
+Donald Trump & Relations with Asia
+
+Topic 6:  ['scientists', 'uk', 'could', 'new', 'study', 'world', 'says', 'system', 'years', 'global', 'find', 'one', 'climate', 'india', 'eu', 'brexit', 'people', 'first', 'carbon', 'research']
+Science & research
+
+Topic 7:  ['people', '000', 'million', 'year', 'health', 'world', 'children', 'study', 'risk', 'last', 'species', 'food', 'says', 'scientists', 'found', 'new', 'global', 'south', 'thousands', 'crisis']
+Science & research
+
+Topic 8:  ['billion', 'oil', 'million', 'china', 'energy', '1', 'year', 'world', 'record', 'company', '2', 'tax', 'new', 'percent', '2016', 'u', 'india', '5', 'market', 'government']
+Economy
+
+Topic 9:  ['police', 'court', 'killed', 'man', 'attack', 'said', 'people', 'year', 'years', 'arrested', 'state', 'death', 'president', 'men', 'says', 'new', 'two', 'three', 'us', 'accused']
+Crime
+
+Topic 10:  ['syria', 'russia', 'u', 'us', 'north', 'korea', 'trump', 'military', 'missile', 'un', 'war', 'israel', 'turkey', 'iran', 'state', 'said', 'syrian', 'says', 'united', 'forces']
+Geopolitics & middle east
+
+Topic 11:  ['north', 'kim', 'jong', 'cancer', 'korea', 'test', 'used', 'new', 'could', 'drugs', 'study', 'first', 'us', 'chemical', 'use', 'scientists', 'korean', 'nam', 'weapons', 'researchers']
+Korea
+
+Topic 12:  ['corruption', 'scandal', 'brazil', 'bribery', 'court', 'brazilian', 'president', 'temer', 'charges', 'arrest', 'political', 'samsung', 'park', 'allegations', 'trial', 'odebrecht', 'former', 'korean', 'korea', 'michel']
+Corruption in Brazil & Korea
+
+Topic 13:  ['killed', 'least', 'isis', 'attack', 'syria', 'mosul', 'near', 'forces', 'dead', 'kills', 'injured', 'islamic', 'people', 'iraqi', 'militants', 'dozens', 'civilians', 'suicide', 'syrian', 'bomb']
+ISIS, terror attacks
+
+Topic 14:  ['korea', 'navy', 'south', 'china', 'u', 'military', 'japan', 'sea', 'korean', 'aircraft', 'north', 'missile', 'carrier', 'chinese', 'us', 'force', 'air', 'russian', 'missiles', 'japanese']
+Asia & Military
+
+Topic 15:  ['ban', 'court', 'law', 'eu', 'rules', 'european', 'government', 'u', 'bill', 'companies', 'laws', 'could', 'new', 'uk', 'rights', 'legal', 'social', 'us', 'trump', 'travel']
+Legal
+
+Topic 16:  ['israel', 'trump', 'israeli', 'president', 'netanyahu', 'house', 'white', 'us', 'palestinian', 'donald', 'says', 'minister', 'jerusalem', 'bank', 'peace', 'palestinians', 'visit', 'settlements', 'west', 'two']
+Israel
+
+Topic 17:  ['protest', 'protesters', 'protests', 'thousands', 'police', 'streets', 'government', 'president', 'people', 'venezuela', 'maduro', 'country', 'march', 'capital', 'wednesday', 'demonstrators', 'across', 'opposition', 'several', 'cities']
+Protests
+
+Topic 18:  ['uk', 'trump', 'us', 'minister', 'brexit', 'says', 'eu', 'may', 'theresa', 'britain', 'donald', 'talks', 'foreign', 'secretary', 'boris', 'meeting', 'british', 'warns', 'syria', 'chemical']
+UK
+
+Topic 19:  ['ice', 'antarctic', 'shelf', 'scientists', 'sea', 'crack', 'antarctica', 'iceberg', 'record', 'arctic', 'break', 'nasa', 'new', 'huge', 'miles', 'climate', 'size', 'c', 'largest', '2016']
+Climate
