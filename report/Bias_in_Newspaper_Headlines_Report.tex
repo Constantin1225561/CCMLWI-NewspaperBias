@@ -1,0 +1,258 @@
+%
+%  This is an example LaTeX file. The percent sign is used to mark the
+% start of a comment.
+%
+%  (modified by George Kachergis from Michael Weeks' example_final_report2.tex)
+%
+\documentclass[final]{ieee}
+\usepackage{graphics}
+\journal{Final Project Report}
+
+\title[journalExample]{Bias in Newspaper Headlines}
+\author[Lastname]{%
+   Timo van Niedek\member{Student} \\
+   Constantin Br\^{i}ncoveanu\member{Student}
+    \authorinfo{%
+     Cognitive Computational Modeling of Language and Web Interaction,\\
+      SOW-MKI61-2016-SEM2-V, 13th July 2017, Dr. G.E. Kachergis. \\
+      email: \mbox{c.brincoveanu@student.ru.nl}} 
+}
+
+
+
+\begin{document}
+
+
+
+\maketitle
+
+
+\begin{abstract}
+The abstract should be no more than 150 words.
+It is a short summary of the paper. If you had to
+re-state what your paper says in 150 words or less, what would you
+say? By the way, I recommend writing the abstract LAST, since it is
+      easier this way.
+
+      For a conference paper, most people will read the abstract to see
+      if they find it interesting enough to read the whole paper. This
+      makes a lot of sense if you go to a conference in a topic that
+      interests you, but find that there are 100+ other papers.
+\end{abstract}
+
+\section{Introduction}\label{sec:intro}
+ 
+     The introduction should get the reader interested, explain your
+     motivations, and provide a quick guide to the rest of the paper.
+     
+      Why is your topic important? Convince us!
+      Where is it used? What are the applications.
+      What will you talk about, and what did you do?
+
+     Include an overview of the rest of your paper (e.g., section 2
+            covers...section 3 presents...).
+            
+            
+\section{Background}
+ 
+ Include any relevant and specific info,
+ e.g. hardware statistics, equipment used.
+ There is {\bf always} some background to cover.
+            
+           Describe what other people had to say on this topic(s)
+            (be sure to cite your references, and quote as appropriate).
+           Describe what other people did on this topic (or related topics).
+           In the references section, cite the papers/books that you used.
+Talk about problems and shortcomings of their work.
+Talk about how your work is different and better.
+
+Here are some citation examples. 
+This is a book about VLSI \cite{Weste93}.
+Also, the references contain a good conference paper \cite{LiY88},
+and a good journal article \cite{BiS92}.
+Anything you found useful.
+Include textbooks from class if you want.
+
+
+\section{Project}
+
+It is always a good idea to have text between a section header and
+a subheading.
+
+\subsection{Design}
+
+Describe your approach to the problem.
+Describe what you did.
+            What you already had (and where it came from).
+            What you added/changed.
+            For parts, include close-up drawings (e.g. Magic screenshots).
+\subsection{Evaluation}
+          What did/didn't work?
+          Include graphs, equations, pictures, etc. as appropriate
+
+
+{\bf Each team member must submit an individual report.}
+
+See the ``paper summary feedback'' on the class website for
+useful examples of what to do when writing a technical document.
+
+%\hrule
+
+Remember your audience - your paper should be understandable by any CS
+student (at your level) who has taken this class.
+
+Things to include in the report:
+\begin{itemize}
+    \item Do not use bullet points unless absolutely necessary!
+    \item Pictures
+    \item Your observations and measurements
+    \item  Equations
+    \item Graphs
+    \item Figures
+    \item Simulation, model 
+\end{itemize}
+
+Note: If you use color graphs, make sure you use a color printer when
+printing the report! I have seen several reports that say things like
+``the blue dots represent ..., while the red ones represent...'', only to
+have the figure printed in grey-scale.
+
+
+%\hrule
+
+\subsection{ACM style}
+So here is my
+incomplete ``online first'' citation in ACM style:
+
+\verb"[Boisvert07]" Boisvert, R. F., Irwin, M. J., and Rushmeier, H. 2007.
+Online First: Evolving the ACM Journal Distribution Program.
+{\it Communications of the ACM}, Article unknown (September 2007), 2 pages.
+(Pages 19-20). DOI = unknown. http://doi.acm.org/unknown.
+
+%------------------------------------------------------------------------
+
+%See the following guide to documenting your sources <quote.html>. 
+
+%------------------------------------------------------------------------
+%Last update: May 2, 2008
+
+%    For references, use the following style:
+
+%Note: You can use [1] instead of [Lyons97], if you prefer.
+
+\section{Results}
+            Include relevant observations, measurements, and statistics.
+            For example, for the VLSI Class: Include statistics such as
+            timing information if available by simulation, or if not,
+            your own analysis about critical path, delays, and clock
+            cycles. Be sure to include size information: the total size
+            of the circuit measured (X lambda by Y lambda), and the
+            transistor count. 
+            
+\section{Summary}
+           Try to draw together the intro, background, and project
+            sections.
+           How do they all relate together? (They may appear to be
+            disjoint sections to an unfamiliar reader).
+           Restate important results.
+\section{Conclusions}
+           You can combine Summary and Conclusions as you see fit.
+           What was accomplished and learned.
+           What you would have done differently.
+           Future work.
+           
+The references must be in the same 2-column format as the rest of your
+paper.
+
+
+
+% Now here is the reference section.
+\begin{thebibliography}{99}
+
+  % Book
+  \bibitem{ImABook} Joe Author, {\it Joe's Book About Stuff}, Publisher Press,
+  Atlanta, GA, 2008.
+  
+  \bibitem{ImAConfPaper} Jane Scientist and Jake G. Student, 
+   ``A Study of Conference Papers'', {\it Proceedings of the 3rd International
+    Conference on Research}, Paris, Texas, USA, January 4-6, 2008, pages 112-115.
+    
+    \bibitem{ImAJournalPaper} Jane Scientist, Joe Author, and Jake G. Student,
+    ``Journal Papers are Longer than Conference Papers'', 
+    {\it IEEE Transactions on Research}, Volume 4, Number 1, pages 212-235,
+    March 2008.
+  
+  
+  \bibitem{Weste93} Neil H. E. Weste and Kamran Eshraghian, {\it Principles
+  of CMOS VLSI Design}, 2nd ed. Reading, MA: Addison-Wesley, 1993.
+
+  %Example of a Conference Paper
+  \bibitem{LiY88} R. A. Lincoln and K. Yao, ``Efficient Systolic Kalman
+  Filtering Design by Dependence Graph Mapping,'' in {\it VLSI Signal
+  Processing, III}, IEEE Press, R. W. Brodersen and H. S. Moscovitz Eds.,
+  1988, pp.~396--410.
+
+  % Example of a Journal Paper
+  \bibitem{BiS92} C. H. Bischof and G. M. Shroff, ``On Updating Signal
+  Subspaces,'' {\it IEEE Trans. on Signal Processing}, vol.~40, no.~1,
+   Jan. 1992, pp.~96--105.
+
+  \bibitem{Lyons97} Richard Lyons, {Understanding Digital Signal Processing},
+Addison-Wesley, 1997.
+
+  \bibitem{Strang97} Strang and Nguyen, {\it Wavelets and Filter Banks}, Revised
+Edition, Wellesley-Cambridge Press, 1997.
+
+\bibitem{Weeks99} Michael Weeks, Beth Lumetta, Magdy Bayoumi, "The Black Jack
+Tutor Chip: Dealing From Idea to Silicon," /IEEE Potentials/, April/May
+1999, pages 38-42.
+
+% example conference paper
+\bibitem{Zhang99} Guoqing Zhang, Mike Talley, Wael Badawy, Michael Weeks and
+Magdy Bayoumi, "A Low Power Prototype for a 3-D Discrete Wavelet
+Transform Processor," {\it IEEE International Symposium on Circuits and
+Systems (ISCAS '99)}, Orlando, Florida, May 30-June 2 1999, pages 80-83.
+
+% example webpage
+\bibitem{Clarke04} Peter Clarke (Silicon Strategies), "Silterra demonstrates
+0.13-micron 8-Mbit SRAM", {\it EE Times},
+\texttt{http://www.eetimes.com/semi/news/}
+\texttt{showArticle.jhtml;}
+\texttt{jsessionid=}
+\texttt{0JJT0OEQDLM3MQSNDBGCKH0CJUMEKJVN?}
+\texttt{articleID=54201193},
+posted November 30, 2004 (5:54 AM EST), accessed November 30, 2004.
+
+%You can use this PDF example
+%\verb"http://mocha-java.uccs.edu/ieee/ieeeftp/"
+%\verb"ieeecls.pdf", but follow these
+%instructions. If you want to use LaTeX, there are directions at
+%\verb"http://carmaux.cs.gsu.edu/"\verb"~mweeks/latex/" and an example file
+%\verb"http://carmaux.cs.gsu.edu/"\verb"~mweeks/latex/"
+%\verb"example_2col_jour.tex" that you can use as a template.
+
+
+\end{thebibliography}
+
+\newpage
+
+% Make a blank page
+\hbox{}
+
+
+\newpage
+
+\thispagestyle{empty}
+
+\section*{Appendix}
+You are allowed to have appendices, as needed. Appendices are mainly for
+code or mathematical derivations. You do not have to turn in all code
+used in your experiment; use your best judgement. You may want to
+include only relevant sections of code. Appendices do {\bf not} count in the
+page count. For example, if you have 4 pages of report, you may also
+turn in an appendix that is as long as you like. The appendix should be
+separate, with your name(s) on it. The appendix does not have to be in two-column
+format. 
+%The appendix pages should be ordered, but do not have to be numbered.
+
+\end{document}
