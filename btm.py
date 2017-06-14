@@ -183,7 +183,7 @@ class BitermTopicModel:
             return ret
 
 if __name__=="__main__":
-    with open('headlines2017.txt') as f:
+    with open('headlines_selected.txt') as f:
         doc=f.read()
         
     vocab_size = 5000
@@ -194,14 +194,14 @@ if __name__=="__main__":
     unique_headlines = [item for item, count in Counter(headlines).items() if count == 1]
     split = [headline.split(" ") for headline in unique_headlines]
         
-    # Expected running time: 3h
+    # Expected running time: 9h
     
     btm = BitermTopicModel(split, vocab_size)
-    #btm.fit(num_iterations=250, num_topics=20,alpha=2.5,beta=0.01)
-    btm.load_params('btm_params_2017.npz')
+    btm.fit(num_iterations=250, num_topics=20,alpha=2.5,beta=0.01)
+    #btm.load_params('btm_params_2017.npz')
     for i, topic in enumerate(btm.get_topic_words(words_per_topic=20)):
         print("Topic {}: ".format(i), topic)
     topic_probs = btm.get_topics_for_docs(split[0:10])
     for i, probs in enumerate(topic_probs):
         print("\""+unique_headlines[i]+"\": topic {}".format(np.argmax(probs)))
-    #btm.save_params('btm_params_2017')
+    btm.save_params('btm_params_selected')
