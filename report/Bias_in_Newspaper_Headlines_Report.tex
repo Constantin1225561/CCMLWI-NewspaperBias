@@ -41,42 +41,7 @@ say? By the way, I recommend writing the abstract LAST, since it is
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
-    
-You can use this file to start your own LaTeX file,
-and just delete the stuff you do not need. \LaTeX  is a lot like working
-with HTML: you can specify where text effects begin, and where they end.
-
-The project reports should be like conference papers: concise and
-focussing on what you did.
-
-Format: 
-You can use the \verb"ieee.cls" file with \LaTeX. 
-The ieee.cls format uses 11/16 inch margins (left and right),
-3/16 inch between columns, 13/16 inch top margin, and 10/16 bottom
-margin. A paper formatted with this may appear to be a bit shorter. Remember
-that the paper is graded based on content, not how much paper is
-used. 
-{\bf This document is formatted with the \verb"IEEEconf.cls" file.}
-
-You can also use the \verb"IEEEconf.cls" file. This file
-format uses 1 inch margins for left, right, and top, and 
-a $1 \frac{1}{8}$ inch bottom margin. It has $\frac{3}{8}$
-inch between columns. 
-%{\bf This document is formatted with the \verb"IEEEconf.cls" file.}
-
-%If you are formatting your document yourself, 
-%use 1 inch margins (left and right), 1 inch margins (top and
-%bottom), 11 point times font for the main text, and use 10 point courier
-%font for computer code. Use your judgement for other situations (for
-%example indented, italics, and 10 point courier font for quotations).
-%Single space your text. Make the text fully-justified (where the letters
-%are aligned on both the left and right). The text should be in
-%2-columns, with 3/8 of an inch of space between columns. Your paper should
-%be 4 pages long. 
-%Having only 3 pages is just fine, as long as the content is good.
-%Anything 6 pages or longer will not be graded.
-
-
+ 
      The introduction should get the reader interested, explain your
      motivations, and provide a quick guide to the rest of the paper.
      
@@ -156,29 +121,7 @@ have the figure printed in grey-scale.
 %\hrule
 
 \subsection{ACM style}
-In the article "Online First: Evolving the ACM Journal Distribution
-Program," the ACM Publications Board presents the idea that research has
-moved to a primarily electronic realm, with print publications serving a
-secondary role [Boisvert07]. This is a big shift in thinking; previously
-the printed version was the standard, with on-line copies merely a
-convenient access method. ACM citations will now include a Digital
-Object Identifier (DOI), a permanent identification code (like an ISBN
-number) which can be translated to a web address by services like
-http://doi.acm.org.
-
-
-Another significant change with the ACM style is to number the pages
-starting at 1 for all articles. A paper with 10 pages will have page
-numbers 1-10, regardless of where it appears in the journal. So an
-article number must be introduced to properly reference the pages of the
-journal. Also, the date refers to when the article is posted.
-
-Ironically, while reading my print copy of CACM, I tried to find this
-article on-line, only to realize that I do not have on-line access.
-Perhaps I do have an account and password buried somewhere. Or maybe I
-did not pay extra for it, since I do not read articles on-line (at least
-without printing them first). The print version does not list an article
-number, nor the DOI, and does not start at page 1. So here is my
+So here is my
 incomplete ``online first'' citation in ACM style:
 
 \verb"[Boisvert07]" Boisvert, R. F., Irwin, M. J., and Rushmeier, H. 2007.
@@ -192,122 +135,6 @@ Online First: Evolving the ACM Journal Distribution Program.
 
 %------------------------------------------------------------------------
 %Last update: May 2, 2008
-
-\subsection{Working with \LaTeX}
-You can have text in {\it italics} font, or in {\bf bold} font,
-\underline{underlined}, and even $\overline{overlined}$.
-What if you want overlined text, without italics? This can
-be done by using \verb"mathrm" in the 
-$\overline{\mathrm{overlined}}$ specification.
-
-Include tables and figures within your report, but be sure to 
-refer to them within the text. Also, say where you got them
-if you did not create them yourself. Table~\ref{tab:example_tab}
-shows an example table, with baseball statistics for several
-teams. We see that the Panthers are arguably best since they
-have the most runs, the second most hits, and the fewest errors.
-
-\begin{table}[!hbt]
-\begin{center}
-  \begin{tabular}{|r|c|c|c|}
-     \hline
- & runs & hits & errors  \\
-     \hline
-Cardinals  & 2 & 2 & 1  \\
-Panthers & 4 & 8 & 0  \\
-Tigers  & 2 & 3 & 2  \\
-Braves  & 3 & 10 & 3  \\
-     \hline
-  \end{tabular}
-  \caption{An example table}
-  \label{tab:example_tab}
-\end{center}
-\end{table}
-
-What if you want to include a figure? 
-Here is an example, figure~\ref{fig:phasor1}, that is saved in 
-encapsulated postscript format. It shows an example of a vector
-from the origin to point $(a,b)$.
-
-\begin{figure}[!hbt]
-  \centering
-    %\scalebox{.9}{\includegraphics{phasor1.eps}}
-  \caption{Here is an example vector.}
-  \label{fig:phasor1}
-\end{figure}
-
-
-\subsection{Here is some Computer Code}\label{sec:code}
-
-I like using the \verb"verbatim" specification for computer code. 
-For example, here is something that appears in several
-languages:
-
-\begin{verbatim}
-    for (int i=0; i< MAXVALUE-1; i++)
-    {
-        if (array[i] < array[i+1]) 
-        {
-            temp = array[i];
-            array[i] = array[i+1];
-            array[i+1] = temp;
-        }
-    }
-\end{verbatim}
-
-See how it makes the code stand out? I think it makes it
-much easier to read, too. You should also explain why you
-chose to include the code. That is, what are you trying to 
-show by including it?
-
-
-\subsection{Here is some Math}\label{sec:math}
-This is different from the previous section, section~\ref{sec:intro}.
-This section gives some examples of Math.
-
-Using superscript:  2$^{n}$
-
-Using subscript: x$_{0}$
-
-If you use a character, but LaTeX complains about it, try putting a 
-back-slash before it. For example, 
-f = x\^{}y  uses the carat character. 
-If you want to end a line, use 2 back-slashes.
-If you want the backslash character $\backslash$ in your document,
-this can be done, too.
-
-Here's an equation:
-
-\[ M^\bot = \{ f \in V' : f(m) = 0 \mbox{ for all } m \in M \}.\]
-
-Here is how \verb"d2u/dx2" can be put in mathematics mode.
-Use the dollar sign before and after math expressions when they
-are in text $\frac{d^2 u}{dx^2}$, or use backslashes and square brackets
-for a line of their own:
-
-\[ \frac{d^2 u}{dx^2} \]
-
-Here's another equation:
-
-\[ \lim_{x \to 0} \frac{3x^2 +7x^3}{x^2 +5x^4} = 3.\]
-
-Here's a summation:
-\[ \sum_{k=1}^n k^2 = \frac{1}{2} n (n+1).\] 
-
-and an integral:
-\[ \int_a^b f(x)\,dx.\]
-
-Here are some Greek letters:
-$ \Delta \Psi \Phi $
-and some lower case ones:
-$ \delta \psi \phi \omega \pi \sigma \mu $.
-
-%For more info, see
-%http://www.maths.tcd.ie/\~{}dwilkins/LaTeXPrimer/
-
-
-
-
 
 %    For references, use the following style:
 
