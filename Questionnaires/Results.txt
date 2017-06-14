@@ -1,0 +1,72 @@
+####
+Topic 1: EU Politics
+Average rating: 5.66
+####
+
+####
+Topic 2: Cyber security/Russian interference with US elections
+Average rating: 6
+####
+
+Topic 3: Environment pacific sea
+Average rating: 3.33
+
+####
+Topic 4: Right-wing politics/populism
+Average rating: 4.33
+####
+
+Topic 5: Flights
+Average rating: 5
+
+Topic 6: Asia-US climate & trade agreements
+Average rating: 4.33
+
+Topic 7: Global warming
+Average rating: 4
+
+Topic 8: Health
+Average rating: 4.33
+
+Topic 9: Asian economy/energy market
+Average rating 3.66
+
+Topic 10: Police brutality/crime
+Average rating: 4.33
+
+Topic 11: Middle east conflicts
+Average rating: 5
+
+Topic 12: North Korea / Kim Jong-un claims to have cured multiple diseases
+Average rating: 5
+
+Topic 13: Brazil/corruption
+Average rating: 3
+
+Topic 14: War in middle east/Islamic terrorism
+Average rating: 5.333
+
+Topic 15: Asian military activity/Korea
+Average rating: 3
+
+Topic 16: Travel, European/International legislation
+Average rating: 3.66
+
+####
+Topic 17: Israel (& relation to US)
+Average rating: 5.66
+####
+
+Topic 18: Demonstrations (in Venezuela)
+Average rating: 5.66
+
+Topic 19: UK & US relations
+Average rating: 4.66
+
+####
+Topic 20: Antartic & climate
+Averate rating: 6
+####
+
+
+ 
