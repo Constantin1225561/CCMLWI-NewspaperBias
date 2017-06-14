@@ -20,7 +20,7 @@ class BitermTopicModel:
                 The maximum number of unique words in the vocabulary.
         """
         self.tokens = tokens
-        self.flat = np.array([word for title in split for word in title if len(word) > 0])
+        self.flat = np.array([word for title in tokens for word in title if len(word) > 0])
         self.vocab_size = vocab_size
         
         self.Nz = None
@@ -121,7 +121,8 @@ class BitermTopicModel:
         phiwz = self.phiwz
         docs = [self.to_biterms(doc) for doc in docs]
         pzb = [[list(thetaz*phiwz[term[0],:]*phiwz[term[1],:]/(thetaz*phiwz[term[0],:]*phiwz[term[1],:]).sum()) for term in set(doc)] for doc in docs]
-        return np.array([np.sum(topic_prods_b,axis=0)/len(topic_prods_b) for topic_prods_b in pzb])
+        
+        return [((np.sum(topic_prods_b,axis=0))/len(topic_prods_b)).tolist() for topic_prods_b in pzb]
     
     def save_params(self, path):
         np.savez_compressed(path,(self.Nwz,self.Nz,self.Z,self.pdz,self.thetaz,self.phiwz))
