@@ -41,8 +41,11 @@ TODO
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
- 
-TODO
+Although newspapers tend to claim neutrality, it is almost impossible to find a source that does not contain stereotypes or biases in one or the other way. Our goal in this project is to apply machine learning to find those biases. We specifically aimed at looking at minorities, such as refugees, and we also examined general politics and anything that might be controversial.
+
+We approached this task by firstly selecting newspaper headlines that belong to a certain topic. This was done by Topic Detection, which will be explained in detail later in this paper. After that selection, a Sentiment Analysis revealed the biases of the individual newspapers.
+
+Another perspective on biases was achieved by implementing a classifier, which revealed further differences between the respective newspapers.
 %     The introduction should get the reader interested, explain your
  %    motivations, and provide a quick guide to the rest of the paper.
      
@@ -52,6 +55,14 @@ TODO
 
   %   Include an overview of the rest of your paper (e.g., section 2
      %       covers...section 3 presents...).
+
+\subsection{Definition of Bias}
+"Bias in cognitive science is generally defined as a deviation from a norm, deviation from some true or objective value."
+%TODO: add source
+We examined deviations from the norm by calculating the mean topic sentiments, as well as the mean topic flavours, and then looking at the differences of the respective domains from those mean values.
+
+A second way to detect biases was domain classification.
+%TODO: describe better
             
             
 \section{Background}
@@ -89,13 +100,35 @@ TODO
 %            What you already had (and where it came from).
 %            What you added/changed.
 %            For parts, include close-up drawings (e.g. Magic screenshots).
+\subsubsection{Data}
+We got data from Newspaper APIs. Firstly, we looked at the Kaggle News Aggregator Dataset. %TODO: add source
+This dataset did not fulfill our requirements, because it only covered a quite small timespan in 2014 and it had a limited number of content categories, and no politic content.
+
+Therefore, we started looking for alternative datasets, which led us to the discovery of the Reddit API. We selected newspaper headlines from "r/worldnews" ranging from 2016 to 2017. From those headlines, we further selected the ones that came from the most occurring domains. %TODO: explain in greater detail
+
 \subsection{Evaluation}
 TODO
  %         What did/didn't work?
  %         Include graphs, equations, pictures, etc. as appropriate
+\subsubsection{General Sentiment Analysis}
+One of our first results was a general Sentiment Analysis. %TODO: explain how it works and how we used it etc.
+We aggregated the results by averaging the sentiments of the headlines for each domain. Those average values ranged from -0.3 to -0.1. %TODO: insert exact values, and maybe also add statistically significance tests.
+This revealed some interesting differences between the domains. It became clear that some domains had very negative average sentiments, because they focused on negative topics such as war and general world news, whereas others have relatively positive average sentiments, because they focused on economics or science news. %TODO: add examples and talk more about it
+%TODO: add results in Results section
 
+\subsubsection{Topic Detection}
+%TODO
 
-{\bf Each team member must submit an individual report.}
+\subsubsection{Sentiment Analysis}
+%TODO
+
+\subsubsection{Flavour}
+%TODO
+
+\subsubsection{Domain Classification}
+We implemented a Bag of Words model with a Random Forest Classifier. For this task, we handpicked six domains (the five most occurring domains, and Foxnews). %TODO: talk more, and add Results
+
+%{\bf Each team member must submit an individual report.}
 
 %See the ``paper summary feedback'' on the class website for
 %useful examples of what to do when writing a technical document.
@@ -161,8 +194,16 @@ TODO
  %          How do they all relate together? (They may appear to be
  %           disjoint sections to an unfamiliar reader).
  %          Restate important results.
+
 \section{Conclusions}
-TODO
+There are measurable biases in newspaper headlines. Classification yielded surprisingly good results. The detected differences between the respective domains are statistically significant.
+
+Sentiment Analysis is not accurate enough to detect the true sentiment value for each headline. In fact, the individual values often appear disappointingly inaccurate. However, if the number of headlines is big enough, the aggregated mean values per domain show significant differences from the general mean.
+
+There are many more possible approaches to detecting newspaper biases, and we only scratched the surfaces of this broad topic. Further research is definitely going to reveal more. %TODO: talk more
+
+
+
 %           You can combine Summary and Conclusions as you see fit.
 %           What was accomplished and learned.
  %          What you would have done differently.
@@ -174,61 +215,61 @@ TODO
 
 
 % Now here is the reference section.
-\begin{thebibliography}{99}
+%\begin{thebibliography}{99}
 
   % Book
-  \bibitem{ImABook} Joe Author, {\it Joe's Book About Stuff}, Publisher Press,
-  Atlanta, GA, 2008.
+  %\bibitem{ImABook} Joe Author, {\it Joe's Book About Stuff}, Publisher Press,
+  %Atlanta, GA, 2008.
   
-  \bibitem{ImAConfPaper} Jane Scientist and Jake G. Student, 
-   ``A Study of Conference Papers'', {\it Proceedings of the 3rd International
-    Conference on Research}, Paris, Texas, USA, January 4-6, 2008, pages 112-115.
+  %\bibitem{ImAConfPaper} Jane Scientist and Jake G. Student, 
+   %``A Study of Conference Papers'', {\it Proceedings of the 3rd International
+    %Conference on Research}, Paris, Texas, USA, January 4-6, 2008, pages 112-115.
     
-    \bibitem{ImAJournalPaper} Jane Scientist, Joe Author, and Jake G. Student,
-    ``Journal Papers are Longer than Conference Papers'', 
-    {\it IEEE Transactions on Research}, Volume 4, Number 1, pages 212-235,
-    March 2008.
+    %\bibitem{ImAJournalPaper} Jane Scientist, Joe Author, and Jake G. Student,
+    %``Journal Papers are Longer than Conference Papers'', 
+    %{\it IEEE Transactions on Research}, Volume 4, Number 1, pages 212-235,
+    %March 2008.
   
   
-  \bibitem{Weste93} Neil H. E. Weste and Kamran Eshraghian, {\it Principles
-  of CMOS VLSI Design}, 2nd ed. Reading, MA: Addison-Wesley, 1993.
+  %\bibitem{Weste93} Neil H. E. Weste and Kamran Eshraghian, {\it Principles
+  %of CMOS VLSI Design}, 2nd ed. Reading, MA: Addison-Wesley, 1993.
 
   %Example of a Conference Paper
-  \bibitem{LiY88} R. A. Lincoln and K. Yao, ``Efficient Systolic Kalman
-  Filtering Design by Dependence Graph Mapping,'' in {\it VLSI Signal
-  Processing, III}, IEEE Press, R. W. Brodersen and H. S. Moscovitz Eds.,
-  1988, pp.~396--410.
+  %\bibitem{LiY88} R. A. Lincoln and K. Yao, ``Efficient Systolic Kalman
+  %Filtering Design by Dependence Graph Mapping,'' in {\it VLSI Signal
+  %Processing, III}, IEEE Press, R. W. Brodersen and H. S. Moscovitz Eds.,
+  %1988, pp.~396--410.
 
   % Example of a Journal Paper
-  \bibitem{BiS92} C. H. Bischof and G. M. Shroff, ``On Updating Signal
-  Subspaces,'' {\it IEEE Trans. on Signal Processing}, vol.~40, no.~1,
-   Jan. 1992, pp.~96--105.
+  %\bibitem{BiS92} C. H. Bischof and G. M. Shroff, ``On Updating Signal
+  %Subspaces,'' {\it IEEE Trans. on Signal Processing}, vol.~40, no.~1,
+   %Jan. 1992, pp.~96--105.
 
-  \bibitem{Lyons97} Richard Lyons, {Understanding Digital Signal Processing},
-Addison-Wesley, 1997.
+  %\bibitem{Lyons97} Richard Lyons, {Understanding Digital Signal Processing},
+%Addison-Wesley, 1997.
 
-  \bibitem{Strang97} Strang and Nguyen, {\it Wavelets and Filter Banks}, Revised
-Edition, Wellesley-Cambridge Press, 1997.
+  %\bibitem{Strang97} Strang and Nguyen, {\it Wavelets and Filter Banks}, Revised
+%Edition, Wellesley-Cambridge Press, 1997.
 
-\bibitem{Weeks99} Michael Weeks, Beth Lumetta, Magdy Bayoumi, "The Black Jack
-Tutor Chip: Dealing From Idea to Silicon," /IEEE Potentials/, April/May
-1999, pages 38-42.
+%\bibitem{Weeks99} Michael Weeks, Beth Lumetta, Magdy Bayoumi, "The Black Jack
+%Tutor Chip: Dealing From Idea to Silicon," /IEEE Potentials/, April/May
+%1999, pages 38-42.
 
 % example conference paper
-\bibitem{Zhang99} Guoqing Zhang, Mike Talley, Wael Badawy, Michael Weeks and
-Magdy Bayoumi, "A Low Power Prototype for a 3-D Discrete Wavelet
-Transform Processor," {\it IEEE International Symposium on Circuits and
-Systems (ISCAS '99)}, Orlando, Florida, May 30-June 2 1999, pages 80-83.
+%\bibitem{Zhang99} Guoqing Zhang, Mike Talley, Wael Badawy, Michael Weeks and
+%Magdy Bayoumi, "A Low Power Prototype for a 3-D Discrete Wavelet
+%Transform Processor," {\it IEEE International Symposium on Circuits and
+%Systems (ISCAS '99)}, Orlando, Florida, May 30-June 2 1999, pages 80-83.
 
 % example webpage
-\bibitem{Clarke04} Peter Clarke (Silicon Strategies), "Silterra demonstrates
-0.13-micron 8-Mbit SRAM", {\it EE Times},
-\texttt{http://www.eetimes.com/semi/news/}
-\texttt{showArticle.jhtml;}
-\texttt{jsessionid=}
-\texttt{0JJT0OEQDLM3MQSNDBGCKH0CJUMEKJVN?}
-\texttt{articleID=54201193},
-posted November 30, 2004 (5:54 AM EST), accessed November 30, 2004.
+%\bibitem{Clarke04} Peter Clarke (Silicon Strategies), "Silterra demonstrates
+%0.13-micron 8-Mbit SRAM", {\it EE Times},
+%\texttt{http://www.eetimes.com/semi/news/}
+%\texttt{showArticle.jhtml;}
+%\texttt{jsessionid=}
+%\texttt{0JJT0OEQDLM3MQSNDBGCKH0CJUMEKJVN?}
+%\texttt{articleID=54201193},
+%posted November 30, 2004 (5:54 AM EST), accessed November 30, 2004.
 
 %You can use this PDF example
 %\verb"http://mocha-java.uccs.edu/ieee/ieeeftp/"
@@ -239,27 +280,27 @@ posted November 30, 2004 (5:54 AM EST), accessed November 30, 2004.
 %\verb"example_2col_jour.tex" that you can use as a template.
 
 
-\end{thebibliography}
+%\end{thebibliography}
 
-\newpage
+%\newpage
 
 % Make a blank page
-\hbox{}
+%\hbox{}
 
 
-\newpage
+%\newpage
 
-\thispagestyle{empty}
+%\thispagestyle{empty}
 
-\section*{Appendix}
-You are allowed to have appendices, as needed. Appendices are mainly for
-code or mathematical derivations. You do not have to turn in all code
-used in your experiment; use your best judgement. You may want to
-include only relevant sections of code. Appendices do {\bf not} count in the
-page count. For example, if you have 4 pages of report, you may also
-turn in an appendix that is as long as you like. The appendix should be
-separate, with your name(s) on it. The appendix does not have to be in two-column
-format. 
+%\section*{Appendix}
+%You are allowed to have appendices, as needed. Appendices are mainly for
+%code or mathematical derivations. You do not have to turn in all code
+%used in your experiment; use your best judgement. You may want to
+%include only relevant sections of code. Appendices do {\bf not} count in the
+%page count. For example, if you have 4 pages of report, you may also
+%turn in an appendix that is as long as you like. The appendix should be
+%separate, with your name(s) on it. The appendix does not have to be in two-column
+%format. 
 %The appendix pages should be ordered, but do not have to be numbered.
 
 \end{document}
