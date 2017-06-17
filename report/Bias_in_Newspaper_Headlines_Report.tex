@@ -15,7 +15,7 @@
     \authorinfo{%
      Cognitive Computational Modeling of Language and Web Interaction,\\
       SOW-MKI61-2016-SEM2-V, 13th July 2017, Dr. G.E. Kachergis. \\
-      email: \mbox{c.brincoveanu@student.ru.nl}} 
+      email: \mbox{c.brincoveanu@student.ru.nl},\mbox{timo.niedek@student.ru.nl}} 
 }
 
 
@@ -41,11 +41,19 @@ TODO
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
-Although newspapers tend to claim neutrality, it is almost impossible to find a source that does not contain stereotypes or biases in one or the other way. Our goal in this project is to apply machine learning to find those biases. We specifically aimed at looking at minorities, such as refugees, and we also examined general politics and anything that might be controversial.
+Although newspapers tend to claim neutrality, it is almost impossible to find a source that does not contain stereotypes or biases in one or the other way. Biases in news headlines pose a danger in that they can propagate stereotypes to the general public. Detecting biases manually requires an enormous amount of effort to code news headlines and apply theoretical bias frameworks. It is infeasible to apply this process to the vast amounts of news stories that are released every day. 
 
-We approached this task by firstly selecting newspaper headlines that belong to a certain topic. This was done by Topic Detection, which will be explained in detail later in this paper. After that selection, a Sentiment Analysis revealed the biases of the individual newspapers.
+An alternative approach that has gained interest recently is to detect biases automatically using machine learning techniques. These systems employ natural language processing techniques to detect one of the many ways in which bias can be present in texts. One such method is sentiment analysis, in which the polarity of the text is determined, either positive, negative or neutral. Sentiment analysis is typically applied to highly subjective texts for which the polarity is very clear and has high variance across difference texts. The difficulty with using sentiment analysis on news headlines to detect bias is that the polarity scores lie closely together, and therefore do not clearly indicate a bias on its own. News outlets report negative events such as war, death or protests more often than positive events, which makes it difficult to compare polarity scores. Additionally, bias detection using polarity as a measure is not enough since negative scores appear often, even unbiased reports. We therefore propose a technique that investigates the difference between the headline sentiment and the mean of the polarity scores for a specific topic. 
 
-Another perspective on biases was achieved by implementing a classifier, which revealed further differences between the respective newspapers.
+Another method of investigating news bias is to measure the amount of flavor words used by a specific news source. These flavor words are adjectives, adverbs, comparatives and superlatives. The motivation behind this method is that these words can carry bias, and a truly objective report would need less of them. Our method compares the amount of flavor in a headline with the mean of the flavor across one topic to identify which news sources use significantly more flavor as an indicator of bias.
+
+Our third and final approach is to classify news headlines into their respective sources, which will indicate how distinct a news source is. An unbiased news outlet would be very difficult to classify, whereas a news outlet that consistently uses biased language can easily be classified.
+
+%Our goal in this project is to apply machine learning techniques to find those biases. We specifically aimed at looking at minorities, such as refugees, and we also examined general politics and anything that might be controversial.
+
+%We approached this task by firstly selecting newspaper headlines that belong to a certain topic. This was done by Topic Detection, which will be explained in detail later in this paper. After that selection, a Sentiment Analysis revealed the biases of the individual newspapers.
+
+%Another perspective on biases was achieved by implementing a classifier, which revealed further differences between the respective newspapers.
 %     The introduction should get the reader interested, explain your
  %    motivations, and provide a quick guide to the rest of the paper.
      
