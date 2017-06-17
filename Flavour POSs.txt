@@ -1,0 +1,9 @@
+Flavour POS's:
+
+RB: adverb
+RBR: adverb, comparative
+RBS: adverb, superlative
+
+JJ: Adjective
+JJR: Adjective, comparative
+JJS: Adjective, superlative
