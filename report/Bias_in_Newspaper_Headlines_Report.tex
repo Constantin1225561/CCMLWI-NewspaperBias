@@ -41,7 +41,7 @@ TODO
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
-Although newspapers tend to claim neutrality, it is almost impossible to find a source that does not contain stereotypes or biases in one or the other way. Biases in news headlines pose a danger in that they can propagate stereotypes to the general public. Detecting biases manually requires an enormous amount of effort to code news headlines and apply theoretical bias frameworks. It is infeasible to apply this process to the vast amounts of news stories that are released every day. 
+Although newspapers tend to claim neutrality, it is almost impossible to find a source that does not contain stereotypes or biases in some form. Biases in news headlines pose a danger in that they can propagate stereotypes to the general public. Detecting biases manually requires an enormous amount of effort to code news headlines and apply theoretical bias frameworks. It is infeasible to apply this process to the vast amounts of news stories that are released every day. 
 
 An alternative approach that has gained interest recently is to detect biases automatically using machine learning techniques. These systems employ natural language processing techniques to detect one of the many ways in which bias can be present in texts. One such method is sentiment analysis, in which the polarity of the text is determined, either positive, negative or neutral. Sentiment analysis is typically applied to highly subjective texts for which the polarity is very clear and has high variance across difference texts. The difficulty with using sentiment analysis on news headlines to detect bias is that the polarity scores lie closely together, and therefore do not clearly indicate a bias on its own. News outlets report negative events such as war, death or protests more often than positive events, which makes it difficult to compare polarity scores. Additionally, bias detection using polarity as a measure is not enough since negative scores appear often, even unbiased reports. We therefore propose a technique that investigates the difference between the headline sentiment and the mean of the polarity scores for a specific topic. 
 
@@ -101,28 +101,41 @@ TODO
 %It is always a good idea to have text between a section header and
 %a subheading.
 
-\subsection{Design}
-TODO
-%Describe your approach to the problem.
-%Describe what you did.
-%            What you already had (and where it came from).
-%            What you added/changed.
-%            For parts, include close-up drawings (e.g. Magic screenshots).
-\subsubsection{Data}
+\subsection{Data}
+
 We got data from Newspaper APIs. Firstly, we looked at the Kaggle News Aggregator Dataset. %TODO: add source
 This dataset did not fulfill our requirements, because it only covered a quite small timespan in 2014 and it had a limited number of content categories, and no politic content.
 
 Therefore, we started looking for alternative datasets, which led us to the discovery of the Reddit API. We selected newspaper headlines from "r/worldnews" ranging from 2016 to 2017. From those headlines, we further selected the ones that came from the most occurring domains. %TODO: explain in greater detail
 
-\subsection{Evaluation}
-TODO
- %         What did/didn't work?
- %         Include graphs, equations, pictures, etc. as appropriate
+\subsection{Design}
+
+%Describe your approach to the problem.
+%Describe what you did.
+%            What you already had (and where it came from).
+%            What you added/changed.
+%            For parts, include close-up drawings (e.g. Magic screenshots).
+
 \subsubsection{General Sentiment Analysis}
+
+% Note: in this section, there shouldn't be any results or discussion, we will add that in the Results & Summary sections
+% This section is only for describing the methods
 One of our first results was a general Sentiment Analysis. %TODO: explain how it works and how we used it etc.
 We aggregated the results by averaging the sentiments of the headlines for each domain. Those average values ranged from -0.3 to -0.1. %TODO: insert exact values, and maybe also add statistically significance tests.
 This revealed some interesting differences between the domains. It became clear that some domains had very negative average sentiments, because they focused on negative topics such as war and general world news, whereas others have relatively positive average sentiments, because they focused on economics or science news. %TODO: add examples and talk more about it
 %TODO: add results in Results section
+
+\subsubsection{Topic Detection}
+
+As a more fine-grained measure of bias, we consider the sentiment analysis per topic. To extract the topics from our data set, we use the biterm topic model (BTM) \cite{BTM13}, which is especially suitable for short texts. BTM uses the word co-occurrence patterns (biterms) to create a model over the entire corpus, thus solving the problem of sparse word co-occurrences within one document. The model parameters are estimated using Gibbs sampling. We create a vocabulary of the top 5000 most occurring words in the corpus, and run the Gibbs sampling algorithm to model $T = 20$ topics. For the Dirichlet priors, we use $\alpha = 50/T = 2.5$ as recommended by \cite{FST13} and $\beta = 0.01$ in order to make the topics contain a small number of highly distinct words. Due to limitations in computational power and the large size of the data set, we were limited to 250 iterations of Gibbs sampling, which took approximately nine hours to complete.
+
+The resulting topics were validated using a small-scale study in which three participants were asked to define a topic from the top twenty most distinct keywords as found by the BTM, and give a rating on a scale from 1 to 7 for how coherent the topic was. We selected a subset of the twenty topics based on coherence and potential for controversy to perform further analysis over.
+
+\subsection{Evaluation}
+TODO
+ %         What did/didn't work?
+ %         Include graphs, equations, pictures, etc. as appropriate
+
 
 \subsubsection{Topic Detection}
 %TODO
@@ -223,7 +236,16 @@ There are many more possible approaches to detecting newspaper biases, and we on
 
 
 % Now here is the reference section.
-%\begin{thebibliography}{99}
+\begin{thebibliography}{99}
+
+  \bibitem{BTM13} Xiaohui Yan, Jiafeng Guo, Yanyan Lan and Xueqi Cheng, 
+   ``A Biterm Topic Model for Short Texts'', {\it Proceedings of the 22nd international conference on 
+   World Wide Web}, ACM, 2013, pages 1445--1456.
+
+  \bibitem{LDA03} D. M. Blei, A. Y. Ng and M. I. Jordan, ``Latent Dirichlet Allocation'' {\it Journal of machine Learning research},  Jan. (2003), pp.~993--1022.
+   
+   \bibitem{FST13} Thomas L. Griffiths and Mark Steyvers, 
+   ``Finding scientific topics'', {\it Proceedings of the National academy of Sciences}, vol.~101, suppl 1, 2004 pages 5228--5235.
 
   % Book
   %\bibitem{ImABook} Joe Author, {\it Joe's Book About Stuff}, Publisher Press,
@@ -288,19 +310,22 @@ There are many more possible approaches to detecting newspaper biases, and we on
 %\verb"example_2col_jour.tex" that you can use as a template.
 
 
-%\end{thebibliography}
+\end{thebibliography}
 
-%\newpage
+\newpage
 
 % Make a blank page
-%\hbox{}
+\hbox{}
 
 
-%\newpage
+\newpage
 
-%\thispagestyle{empty}
+\thispagestyle{empty}
 
-%\section*{Appendix}
+\section*{Appendix}
+
+\subsection*{Topics}
+
 %You are allowed to have appendices, as needed. Appendices are mainly for
 %code or mathematical derivations. You do not have to turn in all code
 %used in your experiment; use your best judgement. You may want to

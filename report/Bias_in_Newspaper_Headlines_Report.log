@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.2.23)  17 JUN 2017 19:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.2.23)  18 JUN 2017 15:57
 entering extended mode
 **./Bias_in_Newspaper_Headlines_Report.tex
 (Bias_in_Newspaper_Headlines_Report.tex
@@ -185,36 +185,40 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 27.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 27.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 130.
 
 [1{C:/Users/Timo/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
-] [2
+] [2]
+[3
 
-]
-(Bias_in_Newspaper_Headlines_Report.aux) ) 
+] (Bias_in_Newspaper_Headlines_Report.aux) ) 
 Here is how much of TeX's memory you used:
- 1754 strings out of 493622
- 24016 string characters out of 3141217
- 90883 words of memory out of 3000000
- 5154 multiletter control sequences out of 15000+200000
- 8645 words of font info for 30 fonts, out of 3000000 for 9000
+ 1760 strings out of 493622
+ 24070 string characters out of 3141217
+ 91892 words of memory out of 3000000
+ 5159 multiletter control sequences out of 15000+200000
+ 8997 words of font info for 31 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  38i,12n,23p,1201b,295s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files (x86)/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
+<C:/Program Files (x86)/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
 type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
 e1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
 public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/
 amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmti12.pfb>
-Output written on Bias_in_Newspaper_Headlines_Report.pdf (2 pages, 120544 bytes
+sfonts/cm/cmti12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmti8.pfb>
+Output written on Bias_in_Newspaper_Headlines_Report.pdf (3 pages, 150679 bytes
 ).
 PDF statistics:
- 45 PDF objects out of 1000 (max. 8388607)
+ 56 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
