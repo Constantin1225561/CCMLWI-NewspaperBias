@@ -41,7 +41,7 @@ TODO
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
-Although newspapers tend to claim neutrality, it is almost impossible to find a source that does not contain stereotypes or biases in one or the other way. Biases in news headlines pose a danger in that they can propagate stereotypes to the general public. Detecting biases manually requires an enormous amount of effort to code news headlines and apply theoretical bias frameworks. It is infeasible to apply this process to the vast amounts of news stories that are released every day. 
+Although newspapers tend to claim neutrality, it is almost impossible to find a source that does not contain any stereotypes or biases in one or the other way. Biases in news headlines pose a danger in that they can propagate stereotypes to the general public. Detecting biases manually requires an enormous amount of effort to code news headlines and apply theoretical bias frameworks. It is infeasible to apply this process to the vast amounts of news stories that are released every day. 
 
 An alternative approach that has gained interest recently is to detect biases automatically using machine learning techniques. These systems employ natural language processing techniques to detect one of the many ways in which bias can be present in texts. One such method is sentiment analysis, in which the polarity of the text is determined, either positive, negative or neutral. Sentiment analysis is typically applied to highly subjective texts for which the polarity is very clear and has high variance across difference texts. The difficulty with using sentiment analysis on news headlines to detect bias is that the polarity scores lie closely together, and therefore do not clearly indicate a bias on its own. News outlets report negative events such as war, death or protests more often than positive events, which makes it difficult to compare polarity scores. Additionally, bias detection using polarity as a measure is not enough since negative scores appear often, even unbiased reports. We therefore propose a technique that investigates the difference between the headline sentiment and the mean of the polarity scores for a specific topic. 
 
@@ -186,7 +186,6 @@ We implemented a Bag of Words model with a Random Forest Classifier. For this ta
 %Note: You can use [1] instead of [Lyons97], if you prefer.
 
 \section{Results}
-TODO
 %            Include relevant observations, measurements, and statistics.
 %            For example, for the VLSI Class: Include statistics such as
 %            timing information if available by simulation, or if not,
@@ -194,6 +193,12 @@ TODO
 %            cycles. Be sure to include size information: the total size
  %           of the circuit measured (X lambda by Y lambda), and the
  %           transistor count. 
+
+\subsection{Sentiment and Flavor Analysis}
+%TODO
+
+\subsection{Domain Classification}
+%TODO
             
 \section{Summary}
 TODO
