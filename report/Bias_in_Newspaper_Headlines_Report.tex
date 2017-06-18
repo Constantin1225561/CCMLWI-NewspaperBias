@@ -6,12 +6,13 @@
 %
 \documentclass[final]{ieee}
 \usepackage{graphics}
-\journal{Final Project Report}
+\usepackage{tabularx}
+\journal{CCMLWI}
 
-\title[journalExample]{Bias in Newspaper Headlines}
-\author[Lastname]{%
-   Timo van Niedek\member{Student} \\
-   Constantin Br\^{i}ncoveanu\member{Student}
+\title[Cognitive Computational Modeling of Language and Web Interaction]{Bias in Newspaper Headlines}
+\author[Br\^{i}ncoveanu \& van Niedek]{%
+   Constantin Br\^{i}ncoveanu \\
+   Timo van Niedek
     \authorinfo{%
      Cognitive Computational Modeling of Language and Web Interaction,\\
       SOW-MKI61-2016-SEM2-V, 13th July 2017, Dr. G.E. Kachergis. \\
@@ -65,10 +66,10 @@ Our third and final approach is to classify news headlines into their respective
   %   Include an overview of the rest of your paper (e.g., section 2
      %       covers...section 3 presents...).
 
-\subsection{Definition of Bias}
+\subsection{Definition of Bias}\label{sec:definition}
 "Bias in cognitive science is generally defined as a deviation from a norm, deviation from some true or objective value."
 %TODO: add source
-We examined deviations from the norm by calculating the mean topic sentiments, as well as the mean topic flavours, and then looking at the differences of the respective domains from those mean values.
+We examined deviations from the norm by calculating the mean topic sentiments, as well as the mean topic flavors, and then looking at the differences of the respective domains from those mean values.
 
 A second way to detect biases was domain classification.
 %TODO: describe better
@@ -107,7 +108,7 @@ This dataset did not fulfill our requirements, because it only covered a quite s
 
 Therefore, we started looking for alternative datasets, which led us to the discovery of the Reddit API. We selected newspaper headlines from "r/worldnews" ranging from 2016 to 2017. From those headlines, we further selected the ones that came from the most occurring domains. %TODO: explain in greater detail
 
-\subsection{Design}
+\subsection{Method}
 
 %Describe your approach to the problem.
 %Describe what you did.
@@ -126,9 +127,19 @@ This revealed some interesting differences between the domains. It became clear 
 
 \subsubsection{Topic Detection}
 
-As a more fine-grained measure of bias, we consider the sentiment analysis per topic. To extract the topics from our data set, we use the biterm topic model (BTM) \cite{BTM13}, which is especially suitable for short texts. BTM uses the word co-occurrence patterns (biterms) to create a model over the entire corpus, thus solving the problem of sparse word co-occurrences within one document. The model parameters are estimated using Gibbs sampling. We create a vocabulary of the top 5000 most occurring words in the corpus, and run the Gibbs sampling algorithm to model $T = 20$ topics. For the Dirichlet priors, we use $\alpha = 50/T = 2.5$ as recommended by \cite{FST13} and $\beta = 0.01$ in order to make the topics contain a small number of highly distinct words. Due to limitations in computational power and the large size of the data set, we were limited to 250 iterations of Gibbs sampling, which took approximately nine hours to complete.
+As a more fine-grained measure of bias, we use sentiment analysis per topic. To extract the topics from our data set, we use the biterm topic model (BTM) \cite{BTM13}, which is especially suitable for short texts. BTM uses the word co-occurrence patterns (biterms) to create a model over the entire corpus, thus solving the problem of sparse word co-occurrences within one document. The model parameters are estimated using Gibbs sampling. We create a vocabulary of the top 5000 most occurring words in the corpus, and run the Gibbs sampling algorithm to model $T = 20$ topics. For the Dirichlet priors, we use $\alpha = 50/T = 2.5$ as recommended by \cite{FST13} and $\beta = 0.01$ in order to make the topics contain a small number of highly distinct words. Due to limitations in computational power and the large size of the data set, we were limited to 250 iterations of Gibbs sampling, which took approximately nine hours to complete. We use a modified version of the BTM implementation found at \cite{BTM15}.
 
-The resulting topics were validated using a small-scale study in which three participants were asked to define a topic from the top twenty most distinct keywords as found by the BTM, and give a rating on a scale from 1 to 7 for how coherent the topic was. We selected a subset of the twenty topics based on coherence and potential for controversy to perform further analysis over.
+\subsubsection{Topic Sentiment Analysis}
+
+We determine the topic for all the headlines in the 2017 Reddit data set using the maximum topic probability. We extract the headlines for the selected topics in Table \ref{tab:topics} and compute the polarity score for every headline. We use the VADER sentiment analysis framework \cite{VAD14} since it is has been shown to achieve good performance on short social media text. VADER is able to detect the polarity of complicated sentences with human-like accuracy.
+
+For every topic, we take the mean over the polarity scores of all headlines within the topic, which we call the \textit{mean topic sentiment}. We then calculate the mean over the polarity scores within one topic for every news source separately. The difference between the mean sentiment per news source and the mean topic sentiment is an indicator of bias, using the definition of bias given in Section \ref{sec:intro}.\textit{\ref{sec:definition}}.
+
+\subsubsection{Flavor Analysis}
+
+As an alternative metric, we introduce the concept of flavor. The amount of flavor in a headline is determined by the amount of words that can potentially carry subjectivity, namely adjectives, adverbs, superlative and comparatives. Intuitively, objective records of news events require less flavor words, while flavorful headlines are more likely to contain bias. We determine the flavor words using the part-of-speech tagger from NLTK \cite{NLTK09}. Since longer sentences are more likely to contain flavor words, we define a normalized flavor metric as the number of flavor words, divided by the total number of words in a sentence.
+
+Similar to the topic sentiment analysis, we compare the flavor per domain and topic with the average flavor taken over all headlines in one topic, the \textit{mean topic flavor}. It is important to note that a deviation from the mean topic flavor does not indicate that a news source is negatively or positively biased for one topic. Instead, such a deviation means that a news source uses significantly more subjective words than others, which we consider an indicator of bias using the definition in Section \ref{sec:intro}.\textit{\ref{sec:definition}}. 
 
 \subsection{Evaluation}
 TODO
@@ -137,12 +148,31 @@ TODO
 
 
 \subsubsection{Topic Detection}
-%TODO
+
+Since there is no good quantitative measure to evaluate the quality of the detected topics, we instead validated them using a small-scale study in which three participants were asked to define a topic from the top twenty most distinct keywords as found by the BTM, and give a rating on a scale from 1 to 7 for how coherent the topic was. We selected a subset of the twenty topics based on average coherence rating and potential for controversy to perform sentiment analysis over. The selected topics can be found in Table \ref{tab:topics}. After extraction of these selected topics, the data set was severely reduced in size. The distribution of headlines per topic is shown in Fig. \ref{fig:topic_dist}, the number of headlines per news source after selecting topics is shown in Fig. \ref{fig:domain_dist}.
+
+\begin{figure}[!hbt]
+  
+  \centering
+    \includegraphics[width=\columnwidth]{topic_dist_bars.png}
+    \caption{Number of headlines per topic.}
+  \label{fig:topic_dist}
+\end{figure}
+
+\begin{figure}[!hbt]
+  
+  \centering
+    \includegraphics[width=\columnwidth]{domain_dist.png}
+    \caption{Number of headlines per news source.}
+  \label{fig:domain_dist}
+\end{figure}
+
 
 \subsubsection{Sentiment Analysis}
-%TODO
 
-\subsubsection{Flavour}
+The deviation from the mean topic sentiment as a measure for bias was evaluated using a two-sided T-test. 
+
+\subsubsection{Flavor}
 %TODO
 
 \subsubsection{Domain Classification}
@@ -242,6 +272,8 @@ There are many more possible approaches to detecting newspaper biases, and we on
 
 % Now here is the reference section.
 \begin{thebibliography}{99}
+  \bibitem{Lichman13} Lichman, M. (2013). {\it UCI Machine Learning Repository} \texttt{http://archive.ics.uci.edu/ml}. Irvine, CA: University of California, School of Information and Computer Science.
+
   \bibitem{BTM13} Xiaohui Yan, Jiafeng Guo, Yanyan Lan and Xueqi Cheng, 
    ``A Biterm Topic Model for Short Texts'', {\it Proceedings of the 22nd international conference on 
    World Wide Web}, ACM, 2013, pages 1445--1456.
@@ -250,6 +282,13 @@ There are many more possible approaches to detecting newspaper biases, and we on
    
    \bibitem{FST13} Thomas L. Griffiths and Mark Steyvers, 
    ``Finding scientific topics'', {\it Proceedings of the National academy of Sciences}, vol.~101, suppl 1, 2004 pages 5228--5235.
+   
+   \bibitem{VAD14} Clayton J. Hutto and Eric Gilbert, 
+   ``Vader: A parsimonious rule-based model for sentiment analysis of social media text.'', {\it  Eighth international AAAI conference on weblogs and social media}, Ann Arbor, MI, USA, June 2014.
+   
+   \bibitem{NLTK09} Steven Bird, Ewan Klein and Edward Loper. {\it Natural language processing with Python: analyzing text with the natural language toolkit}, ``O'Reilly Media, Inc.'', 2009.
+   
+   \bibitem{BTM15} Joan Capdevila Pujol (Universitat Polyt\`{e}cnica de Catalunya), ``jcapde/Biterm: Biterm topic model'', {\it GitHub}, \texttt{https://github.com/jcapde/Biterm}, posted October 14, 2015, accessed May 24, 2017.
 
 
   % Book
@@ -296,6 +335,8 @@ There are many more possible approaches to detecting newspaper biases, and we on
 %Transform Processor," {\it IEEE International Symposium on Circuits and
 %Systems (ISCAS '99)}, Orlando, Florida, May 30-June 2 1999, pages 80-83.
 
+
+
 % example webpage
 %\bibitem{Clarke04} Peter Clarke (Silicon Strategies), "Silterra demonstrates
 %0.13-micron 8-Mbit SRAM", {\it EE Times},
@@ -306,7 +347,7 @@ There are many more possible approaches to detecting newspaper biases, and we on
 %\texttt{articleID=54201193},
 %posted November 30, 2004 (5:54 AM EST), accessed November 30, 2004.
 
-\bibitem{Lichman13} Lichman, M. (2013). {\it UCI Machine Learning Repository} \texttt{http://archive.ics.uci.edu/ml}. Irvine, CA: University of California, School of Information and Computer Science.
+
 
 %You can use this PDF example
 %\verb"http://mocha-java.uccs.edu/ieee/ieeeftp/"
@@ -329,9 +370,22 @@ There are many more possible approaches to detecting newspaper biases, and we on
 
 \thispagestyle{empty}
 
+\onecolumn
+
 \section*{Appendix}
 
-\subsection*{Topics}
+\begin{table}[htb]
+\caption{Selected topics within the 2017 Reddit data set}
+\begin{tabularx}{\textwidth}{X|l|l}
+Keywords & Topic & Average Coherence \\ \hline
+election, EU, Brexit, vote, party, president, minister, UK, parliament, presidential, Theresa, May, says, prime, European, Le, Pen, government, would, French & EU Politics & $5.67$ \\ \hline
+Russian, Russia, US, intelligence, Trump, hacking, hackers, attack, cyber, CIA, FBI, security, government, former, ex, spy, data, says, officials & Cyber security \& Russian hacking & $6.00$ \\ \hline
+Germany, party, Trump, right, says, German, Nazi, world, anti, social, pope, new, election, far, Brexit, leader, president, French, speech, saying & Right-wing politics \& populism & $4.33$ \\ \hline
+Syria, Russia, US, north, Korea, Trump, military, missile, UN, war, Israel, turkey, Iran, state, said, Syrian, says, united, forces & Middle East conflicts & $5$ \\ \hline
+Israel, Trump, Israeli, president, Netanyahu, house, white, US, Palestinian, Donald, says, minister, Jerusalem, bank, peace, Palestinians, visit, settlements, west, two & Israel & $5.66$ \\
+\end{tabularx}
+\label{tab:topics}
+\end{table}
 
 %You are allowed to have appendices, as needed. Appendices are mainly for
 %code or mathematical derivations. You do not have to turn in all code
