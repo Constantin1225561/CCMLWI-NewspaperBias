@@ -97,9 +97,7 @@ TODO
 
 \section{Project}
 
-TODO
-%It is always a good idea to have text between a section header and
-%a subheading.
+Our project consists of several approaches which let us detect biases and analyze newspapers from different perspectives. In this section, we are going to provide information about the dataset we used, as well as describe our approaches, ranging from general sentiment analysis, topic detection and sentiment and flavor analysis for the specific topics, to domain classification.
 
 \subsection{Design}
 TODO
@@ -109,7 +107,7 @@ TODO
 %            What you added/changed.
 %            For parts, include close-up drawings (e.g. Magic screenshots).
 \subsubsection{Data}
-We got data from Newspaper APIs. Firstly, we looked at the Kaggle News Aggregator Dataset. %TODO: add source
+Firstly, we looked at the Kaggle News Aggregator Dataset\cite{Lichman13}. The advantage of this dataset is that it contains over 400k news stories from 
 This dataset did not fulfill our requirements, because it only covered a quite small timespan in 2014 and it had a limited number of content categories, and no politic content.
 
 Therefore, we started looking for alternative datasets, which led us to the discovery of the Reddit API. We selected newspaper headlines from "r/worldnews" ranging from 2016 to 2017. From those headlines, we further selected the ones that came from the most occurring domains. %TODO: explain in greater detail
@@ -134,7 +132,8 @@ This revealed some interesting differences between the domains. It became clear 
 %TODO
 
 \subsubsection{Domain Classification}
-We implemented a Bag of Words model with a Random Forest Classifier. For this task, we handpicked six domains (the five most occurring domains, and Foxnews). %TODO: talk more, and add Results
+We implemented a Bag of Words model with a Random Forest Classifier. For this task, we handpicked six domains. Those were the five most occurring domains: BBC, CNN, Independent, Reuters, and The Guardian. We additionally selected Foxnews as a sixth domain, hoping for it to be a contrast to the other five ones.
+%TODO: talk more, and add Results
 
 %{\bf Each team member must submit an individual report.}
 
@@ -228,7 +227,7 @@ There are many more possible approaches to detecting newspaper biases, and we on
 
 
 % Now here is the reference section.
-%\begin{thebibliography}{99}
+\begin{thebibliography}{99}
 
   % Book
   %\bibitem{ImABook} Joe Author, {\it Joe's Book About Stuff}, Publisher Press,
@@ -284,6 +283,8 @@ There are many more possible approaches to detecting newspaper biases, and we on
 %\texttt{articleID=54201193},
 %posted November 30, 2004 (5:54 AM EST), accessed November 30, 2004.
 
+\bibitem{Lichman13} Lichman, M. (2013). {\it UCI Machine Learning Repository} \texttt{http://archive.ics.uci.edu/ml}. Irvine, CA: University of California, School of Information and Computer Science.
+
 %You can use this PDF example
 %\verb"http://mocha-java.uccs.edu/ieee/ieeeftp/"
 %\verb"ieeecls.pdf", but follow these
@@ -293,7 +294,7 @@ There are many more possible approaches to detecting newspaper biases, and we on
 %\verb"example_2col_jour.tex" that you can use as a template.
 
 
-%\end{thebibliography}
+\end{thebibliography}
 
 %\newpage
 
