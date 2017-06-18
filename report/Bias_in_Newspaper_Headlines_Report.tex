@@ -41,7 +41,8 @@ TODO
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
-Although newspapers tend to claim neutrality, it is almost impossible to find a source that does not contain stereotypes or biases in some form. Biases in news headlines pose a danger in that they can propagate stereotypes to the general public. Detecting biases manually requires an enormous amount of effort to code news headlines and apply theoretical bias frameworks. It is infeasible to apply this process to the vast amounts of news stories that are released every day. 
+
+Although newspapers tend to claim neutrality, it is almost impossible to find a source that does not contain any stereotypes or biases in some form Biases in news headlines pose a danger in that they can propagate stereotypes to the general public. Detecting biases manually requires an enormous amount of effort to code news headlines and apply theoretical bias frameworks. It is infeasible to apply this process to the vast amounts of news stories that are released every day. 
 
 An alternative approach that has gained interest recently is to detect biases automatically using machine learning techniques. These systems employ natural language processing techniques to detect one of the many ways in which bias can be present in texts. One such method is sentiment analysis, in which the polarity of the text is determined, either positive, negative or neutral. Sentiment analysis is typically applied to highly subjective texts for which the polarity is very clear and has high variance across difference texts. The difficulty with using sentiment analysis on news headlines to detect bias is that the polarity scores lie closely together, and therefore do not clearly indicate a bias on its own. News outlets report negative events such as war, death or protests more often than positive events, which makes it difficult to compare polarity scores. Additionally, bias detection using polarity as a measure is not enough since negative scores appear often, even unbiased reports. We therefore propose a technique that investigates the difference between the headline sentiment and the mean of the polarity scores for a specific topic. 
 
@@ -97,9 +98,7 @@ TODO
 
 \section{Project}
 
-TODO
-%It is always a good idea to have text between a section header and
-%a subheading.
+Our project consists of several approaches which let us detect biases and analyze newspapers from different perspectives. In this section, we are going to provide information about the dataset we used, as well as describe our approaches, ranging from general sentiment analysis, topic detection and sentiment and flavor analysis for the specific topics, to domain classification.
 
 \subsection{Data}
 
@@ -115,6 +114,12 @@ Therefore, we started looking for alternative datasets, which led us to the disc
 %            What you already had (and where it came from).
 %            What you added/changed.
 %            For parts, include close-up drawings (e.g. Magic screenshots).
+
+\subsubsection{Data}
+Firstly, we looked at the Kaggle News Aggregator Dataset\cite{Lichman13}. The advantage of this dataset is that it contains over 400k news stories from 
+This dataset did not fulfill our requirements, because it only covered a quite small timespan in 2014 and it had a limited number of content categories, and no politic content.
+
+Therefore, we started looking for alternative datasets, which led us to the discovery of the Reddit API. We selected newspaper headlines from "r/worldnews" ranging from 2016 to 2017. From those headlines, we further selected the ones that came from the most occurring domains. %TODO: explain in greater detail
 
 \subsubsection{General Sentiment Analysis}
 
@@ -147,7 +152,8 @@ TODO
 %TODO
 
 \subsubsection{Domain Classification}
-We implemented a Bag of Words model with a Random Forest Classifier. For this task, we handpicked six domains (the five most occurring domains, and Foxnews). %TODO: talk more, and add Results
+We implemented a Bag of Words model with a Random Forest Classifier. For this task, we handpicked six domains. Those were the five most occurring domains: BBC, CNN, Independent, Reuters, and The Guardian. We additionally selected Foxnews as a sixth domain, hoping for it to be a contrast to the other five ones.
+%TODO: talk more, and add Results
 
 %{\bf Each team member must submit an individual report.}
 
@@ -199,7 +205,6 @@ We implemented a Bag of Words model with a Random Forest Classifier. For this ta
 %Note: You can use [1] instead of [Lyons97], if you prefer.
 
 \section{Results}
-TODO
 %            Include relevant observations, measurements, and statistics.
 %            For example, for the VLSI Class: Include statistics such as
 %            timing information if available by simulation, or if not,
@@ -207,6 +212,12 @@ TODO
 %            cycles. Be sure to include size information: the total size
  %           of the circuit measured (X lambda by Y lambda), and the
  %           transistor count. 
+
+\subsection{Sentiment and Flavor Analysis}
+%TODO
+
+\subsection{Domain Classification}
+%TODO
             
 \section{Summary}
 TODO
@@ -237,7 +248,6 @@ There are many more possible approaches to detecting newspaper biases, and we on
 
 % Now here is the reference section.
 \begin{thebibliography}{99}
-
   \bibitem{BTM13} Xiaohui Yan, Jiafeng Guo, Yanyan Lan and Xueqi Cheng, 
    ``A Biterm Topic Model for Short Texts'', {\it Proceedings of the 22nd international conference on 
    World Wide Web}, ACM, 2013, pages 1445--1456.
@@ -246,6 +256,7 @@ There are many more possible approaches to detecting newspaper biases, and we on
    
    \bibitem{FST13} Thomas L. Griffiths and Mark Steyvers, 
    ``Finding scientific topics'', {\it Proceedings of the National academy of Sciences}, vol.~101, suppl 1, 2004 pages 5228--5235.
+
 
   % Book
   %\bibitem{ImABook} Joe Author, {\it Joe's Book About Stuff}, Publisher Press,
@@ -300,6 +311,8 @@ There are many more possible approaches to detecting newspaper biases, and we on
 %\texttt{0JJT0OEQDLM3MQSNDBGCKH0CJUMEKJVN?}
 %\texttt{articleID=54201193},
 %posted November 30, 2004 (5:54 AM EST), accessed November 30, 2004.
+
+\bibitem{Lichman13} Lichman, M. (2013). {\it UCI Machine Learning Repository} \texttt{http://archive.ics.uci.edu/ml}. Irvine, CA: University of California, School of Information and Computer Science.
 
 %You can use this PDF example
 %\verb"http://mocha-java.uccs.edu/ieee/ieeeftp/"
