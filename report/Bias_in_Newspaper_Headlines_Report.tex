@@ -1,8 +1,3 @@
-%TODO:
-% author
-
-% add classification 16 classes part
-
 
 %  (modified by George Kachergis from Michael Weeks' example_final_report2.tex)
 \documentclass[final]{ieee}
@@ -121,12 +116,9 @@ We employed several methods to detect biases. As a first glance at a possible bi
 
 \subsubsection{General Sentiment Analysis}\label{sec:general sentiment}
 
-% Note: in this section, there shouldn't be any results or discussion, we will add that in the Results & Summary sections
-% This section is only for describing the methods
-One of our first results was a general Sentiment Analysis. We use the VADER sentiment analysis framework \cite{VAD14} since it is has been shown to achieve good performance on short social media text. VADER is able to detect the polarity of complicated sentences with human-like accuracy. %TODO: explain how it works and how we used it etc.
-We aggregated the results by averaging the sentiments of the headlines for each domain. Those average values ranged from $-0.3$ to $-0.1$. %TODO: insert exact values, and maybe also add statistically significance tests.
-This revealed some interesting differences between the domains. It became clear that some domains had very negative average sentiments, because they focused on negative topics such as war and general world news, whereas others have relatively positive average sentiments, because they focused on economics or science news. %TODO: add examples and talk more about it
-%TODO: add results in Results section
+One of our first results was a general Sentiment Analysis. We use the VADER sentiment analysis framework \cite{VAD14} since it is has been shown to achieve good performance on short social media text. VADER is able to detect the polarity of complicated sentences with human-like accuracy.
+
+We aggregated the results by averaging the sentiments of the headlines for each domain. This revealed some interesting differences between the domains. It became clear that some domains had very negative average sentiments, because they focused on negative topics such as war and general world news, whereas others have relatively positive average sentiments, because they focused on economics or science news.
 
 \subsubsection{Topic Detection}\label{sec:topic detection}
 
@@ -145,7 +137,9 @@ As an alternative metric, we introduce the concept of flavor. The amount of flav
 Similar to the topic sentiment analysis, we compare the flavor per news source and topic with the average flavor taken over all headlines in one topic, the \textit{mean topic flavor}. It is important to note that a deviation from the mean topic flavor does not indicate that a news source is negatively or positively biased for one topic. Instead, such a deviation means that a news source uses significantly more subjective words than others, which we consider an indicator of bias using the definition in Section \ref{sec:intro}. 
 
 \subsubsection{Domain Classification}\label{sec:domain classification}
-We implemented a Bag of Words model with a Random Forest Classifier to detect the domain for a given headline. For this task, we handpicked six domains. Those were the five most occurring domains: BBC, CNN, Independent, Reuters, and The Guardian. We additionally selected Foxnews as a sixth domain, hoping for it to be a contrast to the other five ones. The number of headlines per domain varies a lot, ranging from just 1,418 headlines (Foxnews) to over 11,000 headlines (BBC). Due to this big imbalance, we applied undersampling to create a balanced dataset, containing 8,508 total headlines. Then we split the data into a training set (80\%) and a test set (20\%).
+We implemented a Bag of Words model with a Random Forest Classifier to detect the domain for a given headline. For this task, we handpicked six domains. Those were the five most occurring domains: BBC, CNN, Independent, Reuters, and The Guardian. We additionally selected Foxnews as a sixth domain, hoping for it to be a contrast to the other five ones. The same classification task was performed for a different selection of domains. This time, we selected 16 of the most occurring domains, but limiting the timespan to the year 2017.
+
+The number of headlines per domain varies a lot, ranging from just 1,418 headlines (Foxnews) to over 11,000 headlines (BBC). Due to this big imbalance, we applied undersampling to create a balanced dataset, containing 8,508 total headlines for the classification for six domains and 6,096 headlines for the classification for 16 domains. Then we split the data into a training set (80\%) and a test set (20\%).
 
 The Bag of Words model was created by firstly removing stopwords from the headlines and then transforming them into vectors with maximum 5000 features, using a CountVectorizer. Secondly, a Random Forest Classifier was used to predict the domain for the headlines. We found, by trial and error, that 50 is a good number estimators for this task.
 
@@ -185,11 +179,13 @@ We evaluated the classifier by taking its F1-Score into account, but also lookin
  %           of the circuit measured (X lambda by Y lambda), and the
  %           transistor count. 
 
+\subsection{General Sentiment Analysis}
+
+Average sentiment values for the headlines per domain ranged from $-0.3820$ to $-0.0218$. Domains with less than 250 headlines were not included in this evaluation. A selection of the most occurring domains and their average sentiment values is shown in Table \ref{tab:averageSentiments}.
+
 \subsection{Sentiment and Flavor Analysis}\label{sec:sentiment flavor results}
 
 The results of the sentiment analysis described in Section \ref{sec:project}.\ref{sec:topic sent} evaluated using a paired T-test are shown in Fig. \ref{fig:mean_sent}. Fig. \ref{fig:mean_flavor} shows the results of the flavor analysis described in Section \ref{sec:project}.\ref{sec:flavor}.
-
-%TODO: add more interpretation
 
 \begin{figure}[!hbt]
   
@@ -211,13 +207,22 @@ The results of the sentiment analysis described in Section \ref{sec:project}.\re
 
 The domain classification for our six selected domains yielded an F1-Score of around $0.4842$. The confusion matrix for the classification is shown in Fig. \ref{fig:classificationConfusionMatrix}.
 
+For 16 domains, the F1-Score dropped to $0.2913$. In this case the confusion matrix shown in Fig. \ref{fig:classificationConfusionMatrix2} shows bigger differences between the single domains.
+
 Additionally, we took a look at the feature importances and we examined the words with the highest prediction probabilities for a certain domain. Table \ref{tab:indicativeWords} shows a list of some of the most indicative words.
 
 \begin{figure}[!hbt]
   \centering
     \includegraphics[width=\columnwidth]{classificationConfusionMatrix.png}
-    \caption{Confusion matrix for the domain classification.}
+    \caption{Confusion matrix for the domain classification of six domains.}
   \label{fig:classificationConfusionMatrix}
+\end{figure}
+
+\begin{figure}[!hbt]
+  \centering
+    \includegraphics[width=\columnwidth]{classificationConfusionMatrix2.png}
+    \caption{Confusion matrix for the domain classification of 16 domains.}
+  \label{fig:classificationConfusionMatrix2}
 \end{figure}
 
 \section{Conclusions}\label{sec:conclusions}
@@ -228,7 +233,7 @@ Merely applying Sentiment Analysis to a single headline is not accurate enough t
 
 Since big deviations are expected due to the relative inaccuracy of the Sentiment Analysis, statistical tests were performed to detect whether those deviations are significant. Looking at the results of the sentiment analysis per topic, we first note that the distribution of sentiment values is informative, since a random distribution would only yield three significant deviations on average. The mean topic sentiment values are negative for all topics except the last topic (``Israel''), which confirms that news reports often yield a negative sentiment value overall. The most interesting result is the large negative relative sentiment value for the topic ``Israel'' for \texttt{rt.com} (Russia Today).
 
-%TODO: not forget interpretation for flavour
+The same statistical tests were performed for the results of the Flavor Analysis. Several significant values could be found. The most interesting fact is probably that both \texttt{nytimes.com} and \texttt{bloomberg.com} yield significantly lower values for most topics than the other domains in the comparison. This does not necessarily tell us anything about bias. However, it might be explainable by mere journalistic style, since the lack of adverbs is often regarded as a good style, and some domains might pay more attention to that than others.
 
 The domain classification provided a different perspective on biases in news headlines. In contrast to Sentiment Analysis, it cannot tell us anything about positivity or negativity of a domain towards a specific topic, but it can detect a general bias. A higher classification score means that there are existing biases in the domains. If a domain is being classified well, it means that it has distinct features that other domains do not have. For six handpicked domains, there was an F1-Score of $0.4842$, which clearly proves a bias. For 16 domains, the F1-Score was still at $0.2913$. Here, it becomes clear that some domains can be classified better than others.
 
@@ -306,63 +311,6 @@ The majority of the ideas for research directions that were generated were a com
 
 
    
-
-  % Book
-  %\bibitem{ImABook} Joe Author, {\it Joe's Book About Stuff}, Publisher Press,
-  %Atlanta, GA, 2008.
-  
-  %\bibitem{ImAConfPaper} Jane Scientist and Jake G. Student, 
-   %``A Study of Conference Papers'', {\it Proceedings of the 3rd International
-    %Conference on Research}, Paris, Texas, USA, January 4-6, 2008, pages 112-115.
-    
-    %\bibitem{ImAJournalPaper} Jane Scientist, Joe Author, and Jake G. Student,
-    %``Journal Papers are Longer than Conference Papers'', 
-    %{\it IEEE Transactions on Research}, Volume 4, Number 1, pages 212-235,
-    %March 2008.
-  
-  
-  %\bibitem{Weste93} Neil H. E. Weste and Kamran Eshraghian, {\it Principles
-  %of CMOS VLSI Design}, 2nd ed. Reading, MA: Addison-Wesley, 1993.
-
-  %Example of a Conference Paper
-  %\bibitem{LiY88} R. A. Lincoln and K. Yao, ``Efficient Systolic Kalman
-  %Filtering Design by Dependence Graph Mapping,'' in {\it VLSI Signal
-  %Processing, III}, IEEE Press, R. W. Brodersen and H. S. Moscovitz Eds.,
-  %1988, pp.~396--410.
-
-  % Example of a Journal Paper
-  %\bibitem{BiS92} C. H. Bischof and G. M. Shroff, ``On Updating Signal
-  %Subspaces,'' {\it IEEE Trans. on Signal Processing}, vol.~40, no.~1,
-   %Jan. 1992, pp.~96--105.
-
-  %\bibitem{Lyons97} Richard Lyons, {Understanding Digital Signal Processing},
-%Addison-Wesley, 1997.
-
-  %\bibitem{Strang97} Strang and Nguyen, {\it Wavelets and Filter Banks}, Revised
-%Edition, Wellesley-Cambridge Press, 1997.
-
-%\bibitem{Weeks99} Michael Weeks, Beth Lumetta, Magdy Bayoumi, "The Black Jack
-%Tutor Chip: Dealing From Idea to Silicon," /IEEE Potentials/, April/May
-%1999, pages 38-42.
-
-% example conference paper
-%\bibitem{Zhang99} Guoqing Zhang, Mike Talley, Wael Badawy, Michael Weeks and
-%Magdy Bayoumi, "A Low Power Prototype for a 3-D Discrete Wavelet
-%Transform Processor," {\it IEEE International Symposium on Circuits and
-%Systems (ISCAS '99)}, Orlando, Florida, May 30-June 2 1999, pages 80-83.
-
-
-
-% example webpage
-%\bibitem{Clarke04} Peter Clarke (Silicon Strategies), "Silterra demonstrates
-%0.13-micron 8-Mbit SRAM", {\it EE Times},
-%\texttt{http://www.eetimes.com/semi/news/}
-%\texttt{showArticle.jhtml;}
-%\texttt{jsessionid=}
-%\texttt{0JJT0OEQDLM3MQSNDBGCKH0CJUMEKJVN?}
-%\texttt{articleID=54201193},
-%posted November 30, 2004 (5:54 AM EST), accessed November 30, 2004.
-
 \end{thebibliography}
 
 \newpage
@@ -377,6 +325,46 @@ The majority of the ideas for research directions that were generated were a com
 \onecolumn
 
 \section*{Appendix}
+
+\begin{table}[htb]
+\caption{A selection of the most occurring domains and their average sentiment values.}
+\begin{tabularx}{\textwidth}{X|l|l}
+Domain & Number of headlines & Average Sentiment \\ \hline
+bloomberg.com & 1738 & -0.1231787112 \\ \hline
+haaretz.com & 2106 & -0.1742229345 \\ \hline
+cbc.ca & 2041 & -0.1900515924 \\ \hline
+rt.com & 2633 & -0.1984226358 \\ \hline
+spiegel.de & 1839 & -0.1984747145 \\ \hline
+news.bbc.co.uk & 5258 & -0.2008100609 \\ \hline
+t.co & 24799 & -0.2058326384 \\ \hline
+atimes.com & 2893 & -0.2079524369 \\ \hline
+nytimes.com & 7225 & -0.2083552803 \\ \hline
+reuters.com & 11572 & -0.2086531455 \\ \hline
+reut.rs & 11593 & -0.2091130337 \\ \hline
+washingtonpost.com & 3209 & -0.2096432845 \\ \hline
+jpost.com & 1812 & -0.212358223 \\ \hline
+abc.net.au & 1933 & -0.2137741335 \\ \hline
+news.com & 9438 & -0.2157797203 \\ \hline
+google.com & 2403 & -0.2189052434 \\ \hline
+theguardian.com & 7427 & -0.2213403797 \\ \hline
+bbc.co.uk & 14817 & -0.2224216913 \\ \hline
+yahoo.com & 5464 & -0.224336347 \\ \hline
+bbc.com & 4362 & -0.2269494956 \\ \hline
+telegraph.co.uk & 4733 & -0.2331175364 \\ \hline
+news.yahoo.com & 4710 & -0.2333904883 \\ \hline
+globalpost.com & 2178 & -0.2352555096 \\ \hline
+cnn.com & 5537 & -0.2354793209 \\ \hline
+guardian.co.uk & 7591 & -0.2390904887 \\ \hline
+on.cnn.com & 1801 & -0.2417565797 \\ \hline
+edition.cnn.com & 1799 & -0.24187204 \\ \hline
+independent.co.uk & 5367 & -0.2497368176 \\ \hline
+aljazeera.net & 2115 & -0.2740432624 \\ \hline
+dailymail.co.uk & 1964 & -0.2797059063 \\ \hline
+english.aljazeera.net & 2026 & -0.2802155972 \\ \hline
+aljazeera.com & 2888 & -0.2809025277 \\
+\end{tabularx}
+\label{tab:averageSentiments}
+\end{table}
 
 \begin{table}[htb]
 \caption{Selected topics within the 2017 Reddit data set}
