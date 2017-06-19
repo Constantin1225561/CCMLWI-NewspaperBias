@@ -66,6 +66,8 @@ The rest of this paper is structured as follows. In Section \ref{sec:background}
             
 \section{Background}\label{sec:background}
 
+
+
 Most of our computations took a few minutes or less. Topic Detection was the most computationally expensive task, taking a few hours. Our computations were performed on standard laptops.
 
 \subsection{Definition of Bias}\label{sec:definition}
@@ -187,7 +189,7 @@ We evaluated the classifier by taking its F1-Score into account, but also lookin
 
 \subsection{Sentiment and Flavor Analysis}
 
-The results of the sentiment analysis described in Section \ref{sec:project}.\ref{sec:topic sent} evaluated using a paired T-test are shown in Fig. \ref{fig:mean_sent}. We first note that the distribution of sentiment values is informative, since a random distribution would only yield three significant deviations on average. The mean topic sentiment values are negative for all topics except the last topic (``Israel''), which confirms that news reports often yield a negative sentiment value overall. The most interesting result is the large negative relative sentiment value for the topic ``Israel'' for \texttt{rt.com} (Russia Today).
+The results of the sentiment analysis described in Section \ref{sec:project}.\ref{sec:topic sent} evaluated using a paired T-test are shown in Fig. \ref{fig:mean_sent}.
 
 %TODO: add more interpretation
 
@@ -231,6 +233,8 @@ Additionally, we took a look at the feature importances and we examined the word
  %          Restate important results.
 
 \section{Conclusions}\label{sec:conclusions}
+
+We first note that the distribution of sentiment values is informative, since a random distribution would only yield three significant deviations on average. The mean topic sentiment values are negative for all topics except the last topic (``Israel''), which confirms that news reports often yield a negative sentiment value overall. The most interesting result is the large negative relative sentiment value for the topic ``Israel'' for \texttt{rt.com} (Russia Today).
 
 Detecting biases in newspapers is an important task
 
