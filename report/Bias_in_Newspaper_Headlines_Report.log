@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.2.23)  19 JUN 2017 14:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.2.23)  19 JUN 2017 15:47
 entering extended mode
 **./Bias_in_Newspaper_Headlines_Report.tex
 (Bias_in_Newspaper_Headlines_Report.tex
@@ -210,56 +210,54 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 ]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 127.
+(Font)              <7> on input line 124.
  [2]
 <topic_dist_bars.png, id=18, 386.44376pt x 371.3875pt>
 File: topic_dist_bars.png Graphic file (type png)
 
 <use topic_dist_bars.png>
-Package pdftex.def Info: topic_dist_bars.png used on input line 159.
+Package pdftex.def Info: topic_dist_bars.png used on input line 156.
 (pdftex.def)             Requested size: 253.22952pt x 243.36542pt.
  <domain_dist.png, id=20, 386.44376pt x 324.21124pt>
 File: domain_dist.png Graphic file (type png)
 
 <use domain_dist.png>
-Package pdftex.def Info: domain_dist.png used on input line 167.
+Package pdftex.def Info: domain_dist.png used on input line 164.
 (pdftex.def)             Requested size: 253.22952pt x 212.45143pt.
  <mean_sent.png, id=21, 469.755pt x 370.38374pt>
 File: mean_sent.png Graphic file (type png)
 
 <use mean_sent.png>
-Package pdftex.def Info: mean_sent.png used on input line 197.
+Package pdftex.def Info: mean_sent.png used on input line 194.
 (pdftex.def)             Requested size: 253.22952pt x 199.65948pt.
  <mean_flavor.png, id=22, 464.73625pt x 370.38374pt>
 File: mean_flavor.png Graphic file (type png)
 
 <use mean_flavor.png>
-Package pdftex.def Info: mean_flavor.png used on input line 205.
+Package pdftex.def Info: mean_flavor.png used on input line 202.
 (pdftex.def)             Requested size: 253.22952pt x 201.81274pt.
- [3 <./topic_dist_bars.png> <./domain_dist.png>]
-<classificationConfusionMatrix.png, id=29, 589.20125pt x 514.92375pt>
+
+<classificationConfusionMatrix.png, id=23, 589.20125pt x 514.92375pt>
 File: classificationConfusionMatrix.png Graphic file (type png)
 
 <use classificationConfusionMatrix.png>
 Package pdftex.def Info: classificationConfusionMatrix.png used on input line 2
-18.
+15.
 (pdftex.def)             Requested size: 253.22952pt x 221.31075pt.
-
-Underfull \hbox (badness 3209) in paragraph at lines 249--250
+ [3 <./topic_dist_bars.png> <./domain_dist.png>]
+Underfull \hbox (badness 3209) in paragraph at lines 248--249
 []\OT1/cmr/m/n/8 Lichman, M. (2013). \OT1/cmr/m/it/8 UCI Ma-chine Learn-ing Rep
 os-i-tory
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 267--268
+Underfull \hbox (badness 10000) in paragraph at lines 266--267
 []\OT1/cmr/m/n/8 Joan Capdev-ila Pu-jol (Uni-ver-si-tat Polytecnica de
  []
 
 [4 <./mean_sent.png> <./mean_flavor.png> <./classificationConfusionMatrix.png>]
-[5
-
-]
-Underfull \hbox (badness 1163) in paragraph at lines 350--350
+[5]
+Underfull \hbox (badness 1163) in paragraph at lines 354--354
 []|\OT1/cmr/m/n/10 Israel, Trump, Is-raeli, pres-i-dent, Ne-tanyahu, house,
  []
 
@@ -267,10 +265,10 @@ Underfull \hbox (badness 1163) in paragraph at lines 350--350
 
 ] (Bias_in_Newspaper_Headlines_Report.aux) ) 
 Here is how much of TeX's memory you used:
- 1905 strings out of 493622
- 26167 string characters out of 3141217
- 94823 words of memory out of 3000000
- 5291 multiletter control sequences out of 15000+200000
+ 1908 strings out of 493622
+ 26200 string characters out of 3141217
+ 94826 words of memory out of 3000000
+ 5294 multiletter control sequences out of 15000+200000
  9287 words of font info for 33 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  38i,12n,23p,1431b,270s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -289,7 +287,7 @@ nts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfont
 s/cm/cmti8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/c
 m/cmtt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmtt8.pfb>
-Output written on Bias_in_Newspaper_Headlines_Report.pdf (6 pages, 328207 bytes
+Output written on Bias_in_Newspaper_Headlines_Report.pdf (6 pages, 333383 bytes
 ).
 PDF statistics:
  87 PDF objects out of 1000 (max. 8388607)

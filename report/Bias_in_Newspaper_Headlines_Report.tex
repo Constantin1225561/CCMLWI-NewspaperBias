@@ -66,18 +66,13 @@ The rest of this paper is structured as follows. In Section \ref{sec:background}
             
 \section{Background}\label{sec:background}
 
+In cognitive science and sociology, biases in news reports have been studied since well before automatic detection was possible. The first crucial step for research into this topic is to find a clear, measurable definition of bias. One such definition with respect to news reports is \begin{quotation}
+``[\dots] the inappropriate intrusion of subjective opinion into an otherwise factual account''.\cite{STOCKING89}
+\end{quotation}
+In general, cognitive biases are often defined as a deviation from a norm. We therefore combine this definition with the one above, to define a biased headline as a headline that deviates significantly in some dimension from the average value.
+  
+There are several other works in which bias detection is performed on news texts. \cite{RECASENS13} investigates two linguistic biases, namely framing and epistemological bias, and detects them using heuristic methods. 
 
-
-Most of our computations took a few minutes or less. Topic Detection was the most computationally expensive task, taking a few hours. Our computations were performed on standard laptops.
-
-\subsection{Definition of Bias}\label{sec:definition}
-To begin our work, we had to find a good definition for bias. One source\cite{Caverni90} states:
-  \begin{quotation}
-    "Bias in cognitive science is generally defined as a deviation from a norm, deviation from some true or objective value."
-  \end{quotation}
-We came up with several ways to detect those deviations from a norm, as will be discussed in the following sections.
-
-%TODO
 
 % Include any relevant and specific info,
  %e.g. hardware statistics, equipment used.
@@ -138,13 +133,13 @@ As a more fine-grained measure of bias, we use sentiment analysis per topic. To 
 
 We determine the topic for all the headlines in the 2017 Reddit data set using the maximum topic probability. We extract the headlines for the selected topics in Table \ref{tab:topics} and compute the polarity score for every headline. We use the VADER sentiment analysis framework \cite{VAD14} since it is has been shown to achieve good performance on short social media text. VADER is able to detect the polarity of complicated sentences with human-like accuracy.
 
-For every topic, we take the mean over the polarity scores of all headlines within the topic, which we call the \textit{mean topic sentiment}. We then calculate the mean over the polarity scores within one topic for every news source separately. The difference between the mean sentiment per news source and the mean topic sentiment is an indicator of bias, using the definition of bias given in Section \ref{sec:background}.\ref{sec:definition}.
+For every topic, we take the mean over the polarity scores of all headlines within the topic, which we call the \textit{mean topic sentiment}. We then calculate the mean over the polarity scores within one topic for every news source separately. The difference between the mean sentiment per news source and the mean topic sentiment is an indicator of bias, using the definition of bias given in Section \ref{sec:background}.
 
 \subsubsection{Flavor Analysis}\label{sec:flavor}
 
 As an alternative metric, we introduce the concept of flavor. The amount of flavor in a headline is determined by the amount of words that can potentially carry subjectivity, namely adjectives, adverbs, superlative and comparatives. Intuitively, objective records of news events require less flavor words, while flavorful headlines are more likely to contain bias. We determine the flavor words using the part-of-speech tagger from NLTK \cite{NLTK09}. Since longer sentences are more likely to contain flavor words, we define a normalized flavor metric as the number of flavor words, divided by the total number of words in a sentence.
 
-Similar to the topic sentiment analysis, we compare the flavor per news source and topic with the average flavor taken over all headlines in one topic, the \textit{mean topic flavor}. It is important to note that a deviation from the mean topic flavor does not indicate that a news source is negatively or positively biased for one topic. Instead, such a deviation means that a news source uses significantly more subjective words than others, which we consider an indicator of bias using the definition in Section \ref{sec:intro}.\textit{\ref{sec:definition}}. 
+Similar to the topic sentiment analysis, we compare the flavor per news source and topic with the average flavor taken over all headlines in one topic, the \textit{mean topic flavor}. It is important to note that a deviation from the mean topic flavor does not indicate that a news source is negatively or positively biased for one topic. Instead, such a deviation means that a news source uses significantly more subjective words than others, which we consider an indicator of bias using the definition in Section \ref{sec:intro}. 
 
 \subsubsection{Domain Classification}
 We implemented a Bag of Words model with a Random Forest Classifier to detect the domain for a given headline. For this task, we handpicked six domains. Those were the five most occurring domains: BBC, CNN, Independent, Reuters, and The Guardian. We additionally selected Foxnews as a sixth domain, hoping for it to be a contrast to the other five ones. The number of headlines per domain varies a lot, ranging from just 1,418 headlines (Foxnews) to over 11,000 headlines (BBC). Due to this big imbalance, we applied undersampling to create a balanced dataset, containing 8,508 total headlines. Then we split the data into a training set (80\%) and a test set (20\%).
@@ -252,7 +247,7 @@ There are many more possible approaches to detecting newspaper biases, and we on
 \begin{thebibliography}{99}
   \bibitem{Lichman13} Lichman, M. (2013). {\it UCI Machine Learning Repository} \texttt{http://archive.ics.uci.edu/ml}. Irvine, CA: University of California, School of Information and Computer Science.
 
-  \bibitem{Caverni90} Caverni J.-P., Fabre J. M., Gonzales, M. (1990): Cognitive biases: their Contribution for Understanding Human Cognitive Processes. Amsterdam: {\it Elsevier Science Publishers B. V.}
+  \bibitem{Caverni90} Caverni J.-P., Fabre J. M., Gonzales, M. (1990): Cognitive Biases: Their Contribution for Understanding Human Cognitive Processes. Amsterdam: {\it Elsevier Science Publishers B. V.}
 
   \bibitem{BTM13} Xiaohui Yan, Jiafeng Guo, Yanyan Lan and Xueqi Cheng, 
    ``A Biterm Topic Model for Short Texts'', {\it Proceedings of the 22nd international conference on 
@@ -270,6 +265,11 @@ There are many more possible approaches to detecting newspaper biases, and we on
    
    \bibitem{BTM15} Joan Capdevila Pujol (Universitat Polyt\`{e}cnica de Catalunya), ``jcapde/Biterm: Biterm topic model'', {\it GitHub}, \texttt{https://github.com/jcapde/Biterm}, posted October 14, 2015, accessed May 24, 2017.
 
+   \bibitem{STOCKING89} S. Holly Stocking and Paget H. Gross, {\it How Do Journalists Think? A proposal for the study of cognitive bias in newsmaking}, ERIC Clearinghouse on Reading and Communication Skills, 2805 E. 10th St., Smith Research Center, Suite 150, Bloomington, IN 47405, 1989.
+   
+   \bibitem{RECASENS13} Recasens, Marta, Cristian Danescu-Niculescu-Mizil, and Dan Jurafsky, ``Linguistic Models for Analyzing and Detecting Biased Language'', {\it ACL (1).} 2013.
+   
+   \bibitem{GUPTA09} Gupta, Sonal. ``Finding bias in political news and blog websites'', 2009.
 
   % Book
   %\bibitem{ImABook} Joe Author, {\it Joe's Book About Stuff}, Publisher Press,
