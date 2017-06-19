@@ -29,7 +29,7 @@
 
 
 \begin{abstract}
-TODO
+The aim of this project is to detect bias in newspaper headlines using machine learning. A dataset containing world news headlines was obtained using the Reddit API. Bias detection was achieved using several approaches. Firstly, Sentiment Analysis was applied on the headlines. Mean sentiment values can provide information about possible biases. Topic Detection was performed to categorize the headlines, and then Sentiment Analysis was performed on those topic classes, as well as Flavor Analysis. Statistical tests yielded significant biases for a few domains. Lastly, we employed domain classification to gain a different perspective on the biases.
 %The abstract should be no more than 150 words.
 %It is a short summary of the paper. If you had to
 %re-state what your paper says in 150 words or less, what would you
@@ -68,13 +68,14 @@ The rest of this paper is structured as follows. In Section \ref{sec:background}
             
 \section{Background}\label{sec:background}
 
-% Maybe this shouldn't be a subsection
-\subsection{Definition of Bias}\label{sec:definition}
-"Bias in cognitive science is generally defined as a deviation from a norm, deviation from some true or objective value." \cite{Caverni90}
+Most of our computations took a few minutes or less. Topic Detection was the most computationally expensive task, taking a few hours. Our computations were performed on standard laptops.
 
-%We examined deviations from the norm by calculating the mean topic sentiments, as well as the mean topic flavors, and then looking at the differences of the respective domains from those mean values.
-%A second way to detect biases was domain classification.
-%TODO: describe better
+%\subsection{Definition of Bias}\label{sec:definition}
+To begin our work, we had to find a good definition for bias. One source\cite{Caverni90} states:
+  \begin{quotation}
+    "Bias in cognitive science is generally defined as a deviation from a norm, deviation from some true or objective value."
+  \end{quotation}
+We came up with several ways to detect those deviations from a norm, as will be discussed in the following sections.
 
 %TODO
 
