@@ -1,9 +1,12 @@
-%
-%  This is an example LaTeX file. The percent sign is used to mark the
-% start of a comment.
-%
+%TODO:
+% Background
+% General Sentiment Analysis
+% add general sentiment analysis to the results
+% Conclusions
+% author
+
+
 %  (modified by George Kachergis from Michael Weeks' example_final_report2.tex)
-%
 \documentclass[final]{ieee}
 \usepackage{graphics}
 \usepackage{tabularx}
@@ -19,14 +22,9 @@
       email: \mbox{c.brincoveanu@student.ru.nl},\mbox{timo.niedek@student.ru.nl}} 
 }
 
-
-
 \begin{document}
 
-
-
 \maketitle
-
 
 \begin{abstract}
 The aim of this project is to detect bias in newspaper headlines using machine learning. A dataset containing world news headlines was obtained using the Reddit API. Bias detection was achieved using several approaches. Firstly, Sentiment Analysis was applied on the headlines. Mean sentiment values can provide information about possible biases. Topic Detection was performed to categorize the headlines, and then Sentiment Analysis was performed on those topic classes, as well as Flavor Analysis. Statistical tests yielded significant biases for a few domains. Lastly, we employed domain classification to gain a different perspective on the biases.
@@ -53,7 +51,7 @@ Our third and final approach is to classify news headlines into their respective
 
 Our methods can be applied in real-world, on-line settings as a tool to make readers aware of the presence of bias. Creating awareness is an important first step in preventing the reinforcement and spreading of unwanted stereotypes. Our proposed methods are applicable to topics and news sources of any kind.
 
-The rest of this paper is structured as follows. In Section \ref{sec:background} we provide an overview of related work, as well as giving the definition of bias that we used to define our work. Section \ref{sec:project} describes the technical details of our work, where Section \ref{sec:project}.\ref{sec:method} describes the methods that we used to detect bias and Section \ref{sec:project}.\ref{sec:evaluation} details how we validated the performance of our techniques. We provide the results in Section \ref{sec:results}, summarize our work in Section \ref{sec:summary} and conclude with Section \ref{sec:conclusions}. 
+The rest of this paper is structured as follows. In Section \ref{sec:background} we provide an overview of related work, as well as giving the definition of bias that we used to define our work. Section \ref{sec:project} describes the technical details of our work, where Section \ref{sec:project}.\ref{sec:method} describes the methods that we used to detect bias and Section \ref{sec:project}.\ref{sec:evaluation} details how we validated the performance of our techniques. We provide the results in Section \ref{sec:results} and conclude with Section \ref{sec:conclusions}. 
 
 %     The introduction should get the reader interested, explain your
  %    motivations, and provide a quick guide to the rest of the paper.
@@ -176,7 +174,6 @@ We validated the per-topic sentiment and flavor analysis using a two-sided paire
 We evaluated the classifier by taking its F1-Score into account, but also looking at other influencial factors, such as the number of classes. A confusion matrix (see Fig. \ref{fig:classificationConfusionMatrix}) helped us to detect domains which were identical to others. For example, \texttt{bbc.co.uk} was often confused with \texttt{bbc.com}. Since headlines of both of those domains come from BBC, we aggregated them into a single class. The same was done for Reuters, CNN and The Guardian. Furthermore, we eliminated domains that regularly post headlines that came from other domains. One example for that is \texttt{yahoo.com}, which takes news stories from various sources and publishes them on their domain. The classification revealed those sources accordingly.
 
 \section{Results}\label{sec:results}
-%TODO: talk more, and add Results
 
 %{\bf Each team member must submit an individual report.}
 
@@ -234,13 +231,14 @@ Additionally, we took a look at the feature importances and we examined the word
  %          Restate important results.
 
 \section{Conclusions}\label{sec:conclusions}
+
+Detecting biases in newspapers is an important task
+
 There are measurable biases in newspaper headlines. Classification yielded surprisingly good results. The detected differences between the respective domains are statistically significant.
 
 Sentiment Analysis is not accurate enough to detect the true sentiment value for each headline. In fact, the individual values often appear disappointingly inaccurate. However, if the number of headlines is big enough, the aggregated mean values per domain show significant differences from the general mean.
 
-There are many more possible approaches to detecting newspaper biases, and we only scratched the surfaces of this broad topic. Further research is definitely going to reveal more. %TODO: talk more
-
-
+There are many more possible approaches to detecting newspaper biases, and we only scratched the surfaces of this broad topic. Further research is definitely going to reveal more.
 
 %           You can combine Summary and Conclusions as you see fit.
 %           What was accomplished and learned.

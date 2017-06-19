@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.29)  19 JUN 2017 14:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.29)  19 JUN 2017 14:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -128,18 +128,18 @@ Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 (./Bias_in_Newspaper_Headlines_Report.aux)
 \openout1 = `Bias_in_Newspaper_Headlines_Report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -203,64 +203,61 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 28.
+(Font)              <12> on input line 19.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 28.
+(Font)              <8> on input line 19.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 28.
+(Font)              <6> on input line 19.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 28.
-
-
-LaTeX Warning: Reference `sec:summary' on page 1 undefined on input line 56.
+(Font)              <5> on input line 19.
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 129.
+(Font)              <7> on input line 119.
  [2]
-<topic_dist_bars.png, id=20, 386.44376pt x 371.3875pt>
+<topic_dist_bars.png, id=19, 386.44376pt x 371.3875pt>
 File: topic_dist_bars.png Graphic file (type png)
 
 <use topic_dist_bars.png>
-Package pdftex.def Info: topic_dist_bars.png used on input line 161.
+Package pdftex.def Info: topic_dist_bars.png used on input line 151.
 (pdftex.def)             Requested size: 253.22952pt x 243.36542pt.
- <domain_dist.png, id=22, 386.44376pt x 324.21124pt>
+ <domain_dist.png, id=21, 386.44376pt x 324.21124pt>
 File: domain_dist.png Graphic file (type png)
 
 <use domain_dist.png>
-Package pdftex.def Info: domain_dist.png used on input line 169.
+Package pdftex.def Info: domain_dist.png used on input line 159.
 (pdftex.def)             Requested size: 253.22952pt x 212.45143pt.
- <mean_sent.png, id=23, 469.755pt x 370.38374pt>
+ <mean_sent.png, id=22, 469.755pt x 370.38374pt>
 File: mean_sent.png Graphic file (type png)
 
 <use mean_sent.png>
-Package pdftex.def Info: mean_sent.png used on input line 200.
+Package pdftex.def Info: mean_sent.png used on input line 189.
 (pdftex.def)             Requested size: 253.22952pt x 199.65948pt.
- <mean_flavor.png, id=24, 464.73625pt x 370.38374pt>
+ <mean_flavor.png, id=23, 464.73625pt x 370.38374pt>
 File: mean_flavor.png Graphic file (type png)
 
 <use mean_flavor.png>
-Package pdftex.def Info: mean_flavor.png used on input line 208.
+Package pdftex.def Info: mean_flavor.png used on input line 197.
 (pdftex.def)             Requested size: 253.22952pt x 201.81274pt.
  [3 <./topic_dist_bars.png> <./domain_dist.png>]
-<classificationConfusionMatrix.png, id=31, 589.20125pt x 514.92375pt>
+<classificationConfusionMatrix.png, id=30, 589.20125pt x 514.92375pt>
 File: classificationConfusionMatrix.png Graphic file (type png)
 
 <use classificationConfusionMatrix.png>
 Package pdftex.def Info: classificationConfusionMatrix.png used on input line 2
-21.
+10.
 (pdftex.def)             Requested size: 253.22952pt x 221.31075pt.
 
-Underfull \hbox (badness 3209) in paragraph at lines 251--252
+Underfull \hbox (badness 3209) in paragraph at lines 241--242
 []\OT1/cmr/m/n/8 Lichman, M. (2013). \OT1/cmr/m/it/8 UCI Ma-chine Learn-ing Rep
 os-i-tory
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 269--270
+Underfull \hbox (badness 10000) in paragraph at lines 259--260
 []\OT1/cmr/m/n/8 Joan Capdev-ila Pu-jol (Uni-ver-si-tat Polyt^^Recnica de
  []
 
@@ -268,44 +265,40 @@ Underfull \hbox (badness 10000) in paragraph at lines 269--270
 [5
 
 ]
-Underfull \hbox (badness 1163) in paragraph at lines 352--352
+Underfull \hbox (badness 1163) in paragraph at lines 342--342
 []|\OT1/cmr/m/n/10 Israel, Trump, Is-raeli, pres-i-dent, Ne-tanyahu, house,
  []
 
 [6
 
-] (./Bias_in_Newspaper_Headlines_Report.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+] (./Bias_in_Newspaper_Headlines_Report.aux) ) 
 Here is how much of TeX's memory you used:
- 1909 strings out of 494901
- 26164 string characters out of 6178616
+ 1908 strings out of 494901
+ 26151 string characters out of 6178616
  90849 words of memory out of 5000000
- 5197 multiletter control sequences out of 15000+600000
+ 5196 multiletter control sequences out of 15000+600000
  9287 words of font info for 33 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  38i,12n,23p,1428b,270s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on Bias_in_Newspaper_Headlines_Report.pdf (6 pages, 316411 bytes
+</usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on Bias_in_Newspaper_Headlines_Report.pdf (6 pages, 307603 bytes
 ).
 PDF statistics:
- 93 PDF objects out of 1000 (max. 8388607)
- 60 compressed objects within 1 object stream
+ 89 PDF objects out of 1000 (max. 8388607)
+ 57 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
