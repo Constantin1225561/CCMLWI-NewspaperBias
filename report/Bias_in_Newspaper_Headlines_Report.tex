@@ -5,8 +5,6 @@
 % Conclusions
 % author
 
-% add classification 16 classes part
-
 
 %  (modified by George Kachergis from Michael Weeks' example_final_report2.tex)
 \documentclass[final]{ieee}
@@ -73,7 +71,7 @@ In cognitive science and sociology, biases in news reports have been studied sin
 \end{quotation}
 In general, cognitive biases are often defined as a deviation from a norm. We therefore combine this definition with the one above, to define a biased headline as a headline that deviates significantly in some dimension from the average value.
   
-There are several other works in which bias detection is performed on news texts. \cite{RECASENS13} investigates two linguistic biases, namely framing and epistemological bias, and detects them using heuristic methods. 
+There are several other works in which bias detection is performed on news texts. Two form of linguistic biases, namely framing and epistemological biases can be detected using heuristic methods \cite{RECASENS13}, political 
 
 
 % Include any relevant and specific info,
@@ -231,27 +229,15 @@ Additionally, we took a look at the feature importances and we examined the word
 
 \section{Conclusions}\label{sec:conclusions}
 
-Detecting biases in newspapers is an important task. It helps guide readers and exposes hidden biases that are present in news headlines. There are many possible approaches to implement an automatic bias detection system using machine learning. One such approach is Sentiment Analysis, which we used as well in combination with Topic Detection. Another method that we used is measuring the amount of flavor words, i.e. adjectives and adverbs. Our third and final method is to classify news headlines into their respective sources.
+We first note that the distribution of sentiment values is informative, since a random distribution would only yield three significant deviations on average. The mean topic sentiment values are negative for all topics except the last topic (``Israel''), which confirms that news reports often yield a negative sentiment value overall. The most interesting result is the large negative relative sentiment value for the topic ``Israel'' for \texttt{rt.com} (Russia Today).
 
-Merely applying Sentiment Analysis to a single headline is not accurate enough to detect true sentiments or biases. In fact, the individual values often appear disappointingly inaccurate. However, if the number of headlines is big enough, the aggregated mean values per domain show significant differences from the general mean. This proves that there are indeed great differences between the domains, but that could also be because each domain focuses on different topics. A topic might carry negative or positive sentiment because of its nature, regardless of who talks about it. Therefore, we decided to examine sentiments per topic to find out whether different domains talk about the same topic differently.
+Detecting biases in newspapers is an important task
 
-Since big deviations are expected due to the relative inaccuracy of the Sentiment Analysis, statistical tests were performed to detect whether those deviations are significant. Looking at the results of the sentiment analysis per topic, we first note that the distribution of sentiment values is informative, since a random distribution would only yield three significant deviations on average. The mean topic sentiment values are negative for all topics except the last topic (``Israel''), which confirms that news reports often yield a negative sentiment value overall. The most interesting result is the large negative relative sentiment value for the topic ``Israel'' for \texttt{rt.com} (Russia Today).
+There are measurable biases in newspaper headlines. Classification yielded surprisingly good results. The detected differences between the respective domains are statistically significant.
 
-%TODO: not forget interpretation for flavour
+Sentiment Analysis is not accurate enough to detect the true sentiment value for each headline. In fact, the individual values often appear disappointingly inaccurate. However, if the number of headlines is big enough, the aggregated mean values per domain show significant differences from the general mean.
 
-The domain classification provided a different perspective on biases in news headlines. In contrast to Sentiment Analysis, it cannot tell us anything about positivity or negativity of a domain towards a specific topic, but it can detect a general bias. A higher classification score means that there are existing biases in the domains. If a domain is being classified well, it means that it has distinct features that other domains do not have. For six handpicked domains, there was an F1-Score of $0.4842$, which clearly proves a bias. For 16 domains, the F1-Score was still at $0.2913$. Here, it becomes clear that some domains can be classified better than others.
-
-Bias might be the explanation for some of those differences. However, it is not a reliable indicator, since a high or a low accuracy for a domain can have many reasons. For example, the classifier performs very poorly for Yahoo. This can be explained by the fact that Yahoo usually doesn't publish news itself, but rather takes news stories from other news sources and publishes them on Yahoo. There are other possible explanations for a high or low accuracy which have nothing to do with bias, such as journalistic style.
-
-To conclude, we found that there are measurable biases in newspaper headlines. Classification yielded surprisingly good results. The detected differences between the respective domains are statistically significant.
-
-During this project we deepened our understanding of Sentiment Analysis, Natural Language Processing, Topic Detection and Text Classification. We practically applied all of those methods to obtain significant results and to detect biases in newspaper headlines. We are generally happy with the way we conducted this project.
-
-However, there are a few things that we would have done differently. We would have definitely benefitted from a larger, more complete dataset. If in our data, a single event would have been covered by multiple news sources, we could have performed a direct comparison per event. The fact that the dataset does not include many headlines probably raised the deviations.
-
-Therefore, we had to give up on a few methods that would have worked on a complete dataset. Research should focus on a single method generally, but in our case it was probably good to try different methods and to find out which ones work well.
-
-There are numerous possible approaches to detecting newspaper biases, and we only scratched the surface of this broad topic. Further research is definitely going to reveal more.
+There are many more possible approaches to detecting newspaper biases, and we only scratched the surfaces of this broad topic. Further research is definitely going to reveal more.
 
 %           You can combine Summary and Conclusions as you see fit.
 %           What was accomplished and learned.
