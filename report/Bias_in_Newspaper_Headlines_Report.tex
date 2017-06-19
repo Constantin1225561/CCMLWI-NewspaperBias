@@ -70,7 +70,7 @@ The rest of this paper is structured as follows. In Section \ref{sec:background}
 
 Most of our computations took a few minutes or less. Topic Detection was the most computationally expensive task, taking a few hours. Our computations were performed on standard laptops.
 
-%\subsection{Definition of Bias}\label{sec:definition}
+\subsection{Definition of Bias}\label{sec:definition}
 To begin our work, we had to find a good definition for bias. One source\cite{Caverni90} states:
   \begin{quotation}
     "Bias in cognitive science is generally defined as a deviation from a norm, deviation from some true or objective value."
@@ -104,10 +104,12 @@ Our project consists of several approaches which let us detect biases and analyz
 
 \subsection{Data}
 
-Firstly, we looked at the Kaggle News Aggregator Dataset\cite{Lichman13}. The advantage of this dataset is that it contains over 400k news stories from 
+Firstly, we looked at the Kaggle News Aggregator Dataset\cite{Lichman13}. The advantage of this dataset is that it contains over 400k news stories from many different domains. Often, the same event exists in the dataset multiple times, covered by different news sources.
 This dataset did not fulfill our requirements, because it only covered a quite small timespan in 2014 and it had a limited number of content categories, and no politic content.
 
-Therefore, we started looking for alternative datasets, which led us to the discovery of the Reddit API. We selected newspaper headlines from "r/worldnews" ranging from 2016 to 2017. From those headlines, we further selected the ones that came from the most occurring domains. %TODO: explain in greater detail
+Therefore, we started looking for alternative datasets, which led us to the discovery of the Reddit API. We selected newspaper headlines from "r/worldnews", which exhibits roughly 90k headlines per year. Each headline was obtained with a corresponding timestamp and the domain on which the news story was published. One drawback of our dataset is the fact that each event was usually featured only once in our dataset. If the same event would exist in the dataset several times, covered by different domains, a direct comparison between those domains would have been much easier. We scraped headlines starting from 2014, but for our analysis we mostly focused on the timespan between 2016 and 2017, since the full dataset would make Topic Detection too computationally expensive. Furthermore, the number of topics would probably increase, and some topics would only occur during a short timespan.
+
+Since many domains in the dataset only occurred a few times, and the number of headlines per domain would be further reduced because of the Topic Detection, we selected the big domains to make sure that at least a few hundred headlines per domain were available.
 
 \subsection{Method}\label{sec:method}
 
@@ -136,7 +138,7 @@ As a more fine-grained measure of bias, we use sentiment analysis per topic. To 
 
 We determine the topic for all the headlines in the 2017 Reddit data set using the maximum topic probability. We extract the headlines for the selected topics in Table \ref{tab:topics} and compute the polarity score for every headline. We use the VADER sentiment analysis framework \cite{VAD14} since it is has been shown to achieve good performance on short social media text. VADER is able to detect the polarity of complicated sentences with human-like accuracy.
 
-For every topic, we take the mean over the polarity scores of all headlines within the topic, which we call the \textit{mean topic sentiment}. We then calculate the mean over the polarity scores within one topic for every news source separately. The difference between the mean sentiment per news source and the mean topic sentiment is an indicator of bias, using the definition of bias given in Section \ref{sec:intro}.\ref{sec:definition}.
+For every topic, we take the mean over the polarity scores of all headlines within the topic, which we call the \textit{mean topic sentiment}. We then calculate the mean over the polarity scores within one topic for every news source separately. The difference between the mean sentiment per news source and the mean topic sentiment is an indicator of bias, using the definition of bias given in Section \ref{sec:background}.\ref{sec:definition}.
 
 \subsubsection{Flavor Analysis}\label{sec:flavor}
 
