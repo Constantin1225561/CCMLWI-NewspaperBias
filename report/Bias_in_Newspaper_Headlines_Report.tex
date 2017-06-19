@@ -1,8 +1,4 @@
 %TODO:
-% Background
-% General Sentiment Analysis
-% add general sentiment analysis to the results
-% Conclusions
 % author
 
 % add classification 16 classes part
@@ -73,8 +69,13 @@ In cognitive science and sociology, biases in news reports have been studied sin
 \end{quotation}
 In general, cognitive biases are often defined as a deviation from a norm. We therefore combine this definition with the one above, to define a biased headline as a headline that deviates significantly in some dimension from the average value.
   
-There are several other works in which bias detection is performed on news texts. Two form of linguistic biases, namely framing and epistemological biases can be detected using heuristic methods \cite{RECASENS13}, political 
+There is other research in which bias detection is performed on news texts. Two forms of linguistic biases, namely framing and epistemological biases are detected using heuristic methods in \cite{RECASENS13}. Political biases can be detected using ``memes'', phrases from politicians that are quoted in online texts \cite{GUPTA09}. Instead, we use more general approaches to detect bias, that can be applied to any topic.
 
+In other work, bias is detected in a supervised manner using a SVM that can classify the headlines of a small dataset into two classes (biased and unbiased) with an accuracy of $93.66\%$ \cite{CHU}. In contrast with this work, we use unsupervised methods on a larger data set.
+
+Doumit et al. \cite{DOUMIT11} use a combination of latent Dirichlet allocation to detect the topic signatures similar to our work, and use them to create a model in which biases are characterized as variants on the topic signature as detected by natural language processing methods. The difference between their work and ours, is that we directly determine the bias per news source as a quantitative measure, so that bias scores can easily be compared between different sources.
+
+To the authors' knowledge, there is no prior work that uses a classifier for determining the news source from a headline as an indicator of bias.
 
 % Include any relevant and specific info,
  %e.g. hardware statistics, equipment used.
@@ -97,9 +98,9 @@ There are several other works in which bias detection is performed on news texts
 
 \section{Project}\label{sec:project}
 
-Our project consists of several approaches which let us detect biases and analyze newspapers from different perspectives. In this section, we are going to provide information about the dataset we used, as well as describe our approaches, ranging from general sentiment analysis, topic detection and sentiment and flavor analysis for the specific topics, to domain classification.
+Our project consists of several approaches which let us detect biases and analyze newspapers from different perspectives. In this section, we are going to provide information about the data set we used, as well as describe our approaches, ranging from general sentiment analysis, topic detection and sentiment and flavor analysis for the specific topics, to domain classification.
 
-\subsection{Data}
+\subsection{Data}\label{sec:data}
 
 Firstly, we looked at the Kaggle News Aggregator Dataset\cite{Lichman13}. The advantage of this dataset is that it contains over 400k news stories from many different domains. Often, the same event exists in the dataset multiple times, covered by different news sources.
 This dataset did not fulfill our requirements, because it only covered a quite small timespan in 2014 and it had a limited number of content categories, and no politic content.
@@ -118,22 +119,22 @@ Since many domains in the dataset only occurred a few times, and the number of h
 
 We employed several methods to detect biases. As a first glance at a possible bias, we used Sentiment Analysis. Later, we decided to refine our results by utilizing Topic Detection, Flavor Analysis, as well as a domain classifier.
 
-\subsubsection{General Sentiment Analysis}
+\subsubsection{General Sentiment Analysis}\label{sec:general sentiment}
 
 % Note: in this section, there shouldn't be any results or discussion, we will add that in the Results & Summary sections
 % This section is only for describing the methods
-One of our first results was a general Sentiment Analysis. %TODO: explain how it works and how we used it etc.
+One of our first results was a general Sentiment Analysis. We use the VADER sentiment analysis framework \cite{VAD14} since it is has been shown to achieve good performance on short social media text. VADER is able to detect the polarity of complicated sentences with human-like accuracy. %TODO: explain how it works and how we used it etc.
 We aggregated the results by averaging the sentiments of the headlines for each domain. Those average values ranged from $-0.3$ to $-0.1$. %TODO: insert exact values, and maybe also add statistically significance tests.
 This revealed some interesting differences between the domains. It became clear that some domains had very negative average sentiments, because they focused on negative topics such as war and general world news, whereas others have relatively positive average sentiments, because they focused on economics or science news. %TODO: add examples and talk more about it
 %TODO: add results in Results section
 
-\subsubsection{Topic Detection}
+\subsubsection{Topic Detection}\label{sec:topic detection}
 
 As a more fine-grained measure of bias, we use sentiment analysis per topic. To extract the topics from our data set, we use the biterm topic model (BTM) \cite{BTM13}, which is especially suitable for short texts. BTM uses the word co-occurrence patterns (biterms) to create a model over the entire corpus, thus solving the problem of sparse word co-occurrences within one document. The model parameters are estimated using Gibbs sampling. We create a vocabulary of the top 5000 most occurring words in the corpus, and run the Gibbs sampling algorithm to model $T = 20$ topics. For the Dirichlet priors, we use $\alpha = 50/T = 2.5$ as recommended by \cite{FST13} and $\beta = 0.01$ in order to make the topics contain a small number of highly distinct words. Due to limitations in computational power and the large size of the data set, we were limited to 250 iterations of Gibbs sampling, which took approximately nine hours to complete. We use a modified version of the BTM implementation found at \cite{BTM15}.
 
 \subsubsection{Topic Sentiment Analysis}\label{sec:topic sent}
 
-We determine the topic for all the headlines in the 2017 Reddit data set using the maximum topic probability. We extract the headlines for the selected topics in Table \ref{tab:topics} and compute the polarity score for every headline. We use the VADER sentiment analysis framework \cite{VAD14} since it is has been shown to achieve good performance on short social media text. VADER is able to detect the polarity of complicated sentences with human-like accuracy.
+We determine the topic for all the headlines in the 2017 Reddit data set using the maximum topic probability. We extract the headlines for the selected topics in Table \ref{tab:topics} and compute the polarity score for every headline using VADER \cite{VAD14}.
 
 For every topic, we take the mean over the polarity scores of all headlines within the topic, which we call the \textit{mean topic sentiment}. We then calculate the mean over the polarity scores within one topic for every news source separately. The difference between the mean sentiment per news source and the mean topic sentiment is an indicator of bias, using the definition of bias given in Section \ref{sec:background}.
 
@@ -143,7 +144,7 @@ As an alternative metric, we introduce the concept of flavor. The amount of flav
 
 Similar to the topic sentiment analysis, we compare the flavor per news source and topic with the average flavor taken over all headlines in one topic, the \textit{mean topic flavor}. It is important to note that a deviation from the mean topic flavor does not indicate that a news source is negatively or positively biased for one topic. Instead, such a deviation means that a news source uses significantly more subjective words than others, which we consider an indicator of bias using the definition in Section \ref{sec:intro}. 
 
-\subsubsection{Domain Classification}
+\subsubsection{Domain Classification}\label{sec:domain classification}
 We implemented a Bag of Words model with a Random Forest Classifier to detect the domain for a given headline. For this task, we handpicked six domains. Those were the five most occurring domains: BBC, CNN, Independent, Reuters, and The Guardian. We additionally selected Foxnews as a sixth domain, hoping for it to be a contrast to the other five ones. The number of headlines per domain varies a lot, ranging from just 1,418 headlines (Foxnews) to over 11,000 headlines (BBC). Due to this big imbalance, we applied undersampling to create a balanced dataset, containing 8,508 total headlines. Then we split the data into a training set (80\%) and a test set (20\%).
 
 The Bag of Words model was created by firstly removing stopwords from the headlines and then transforming them into vectors with maximum 5000 features, using a CountVectorizer. Secondly, a Random Forest Classifier was used to predict the domain for the headlines. We found, by trial and error, that 50 is a good number estimators for this task.
@@ -184,9 +185,9 @@ We evaluated the classifier by taking its F1-Score into account, but also lookin
  %           of the circuit measured (X lambda by Y lambda), and the
  %           transistor count. 
 
-\subsection{Sentiment and Flavor Analysis}
+\subsection{Sentiment and Flavor Analysis}\label{sec:sentiment flavor results}
 
-The results of the sentiment analysis described in Section \ref{sec:project}.\ref{sec:topic sent} evaluated using a paired T-test are shown in Fig. \ref{fig:mean_sent}.
+The results of the sentiment analysis described in Section \ref{sec:project}.\ref{sec:topic sent} evaluated using a paired T-test are shown in Fig. \ref{fig:mean_sent}. Fig. \ref{fig:mean_flavor} shows the results of the flavor analysis described in Section \ref{sec:project}.\ref{sec:flavor}.
 
 %TODO: add more interpretation
 
@@ -206,7 +207,7 @@ The results of the sentiment analysis described in Section \ref{sec:project}.\re
   \label{fig:mean_flavor}
 \end{figure}
 
-\subsection{Domain Classification}
+\subsection{Domain Classification}\label{sec:domain classification results}
 
 The domain classification for our six selected domains yielded an F1-Score of around $0.4842$. The confusion matrix for the classification is shown in Fig. \ref{fig:classificationConfusionMatrix}.
 
@@ -218,16 +219,6 @@ Additionally, we took a look at the feature importances and we examined the word
     \caption{Confusion matrix for the domain classification.}
   \label{fig:classificationConfusionMatrix}
 \end{figure}
-            
-%\section{Summary}\label{sec:summary}
-
-%TODO: do we need a summary, or maybe it is better to combine it with the Conclusions?
-
-%           Try to draw together the intro, background, and project
- %           sections.
- %          How do they all relate together? (They may appear to be
- %           disjoint sections to an unfamiliar reader).
- %          Restate important results.
 
 \section{Conclusions}\label{sec:conclusions}
 
@@ -253,37 +244,68 @@ Therefore, we had to give up on a few methods that would have worked on a comple
 
 There are numerous possible approaches to detecting newspaper biases, and we only scratched the surface of this broad topic. Further research is definitely going to reveal more.
 
-%           You can combine Summary and Conclusions as you see fit.
-%           What was accomplished and learned.
- %          What you would have done differently.
- %          Future work.
+The code for this research can be found at \texttt{github.com/Constantin1225561/CCMLWI-NewspaperBias}.
+
+\subsection{Contributions}\label{sec:contributions}
+
+The specific author contributions are as follows. C. Br\^{i}ncoveanu scraped the Reddit data set, performed general sentiment analysis per domain, created the domiain classifier and evaluated it. Additionally, this author wrote the sections 
+\begin{itemize}
+\item Abstract,
+\item \ref{sec:project}. Project,
+\item \ref{sec:project}.\ref{sec:data}. Data,
+\item \ref{sec:project}.\ref{sec:general sentiment}. General Sentiment Analysis,
+\item \ref{sec:project}.\ref{sec:domain classification}. Domain Classification,
+\item \ref{sec:project}.\ref{sec:evaluation}. Evaluation, part on domain classification,
+\item \ref{sec:results}.\ref{sec:domain classification results}. Domain Classification (Results),
+\item \ref{sec:conclusions}. Conclusions.
+\end{itemize}
+
+T. van Niedek conducted part of the literature review, created the topic detection system and validation questionnaires, performed topic sentiment analysis and flavor analysis, and validated these results. The sections written by this author are 
+\begin{itemize}
+\item \ref{sec:intro}. Introduction,
+\item \ref{sec:background}. Background,
+\item \ref{sec:project}.\ref{sec:topic detection}. Topic Detection,
+\item \ref{sec:project}.\ref{sec:topic sent}. Topic Sentiment Analysis,
+\item \ref{sec:project}.\ref{sec:flavor}. Flavor Analysis,
+\item \ref{sec:project}.\ref{sec:evaluation}. Evaluation, parts on topic detection, sentiment and flavor analyses,
+\item \ref{sec:results}.\ref{sec:sentiment flavor results}. Sentiment and Flavor Analysis (Results).
+\end{itemize}
+
+The majority of the ideas for research directions that were generated were a combination of efforts from both authors.
+
            
 \begin{thebibliography}{99}
-  \bibitem{Lichman13} Lichman, M. (2013). {\it UCI Machine Learning Repository} \texttt{http://archive.ics.uci.edu/ml}. Irvine, CA: University of California, School of Information and Computer Science.
+\bibitem{LDA03} D. M. Blei, A. Y. Ng and M. I. Jordan, ``Latent Dirichlet Allocation'' {\it Journal of machine Learning research},  Jan. (2003), pp.~993--1022.
 
-  \bibitem{Caverni90} Caverni J.-P., Fabre J. M., Gonzales, M. (1990): Cognitive Biases: Their Contribution for Understanding Human Cognitive Processes. Amsterdam: {\it Elsevier Science Publishers B. V.}
+\bibitem{NLTK09} Steven Bird, Ewan Klein and Edward Loper. {\it Natural language processing with Python: analyzing text with the natural language toolkit}, ``O'Reilly Media, Inc.'', 2009.
 
-  \bibitem{BTM13} Xiaohui Yan, Jiafeng Guo, Yanyan Lan and Xueqi Cheng, 
+\bibitem{Caverni90} Caverni J.-P., Fabre J. M., Gonzales, M. (1990): Cognitive Biases: Their Contribution for Understanding Human Cognitive Processes. Amsterdam: {\it Elsevier Science Publishers B. V.}
+
+\bibitem{CHU} Chu, Albert, Kensen Shi, and Catherine Wong, ``Prediction of Average and Perceived Polarity in Online Journalism.''
+
+\bibitem{DOUMIT11} Doumit, Sarjoun, and Ali Minai, ``Online news media bias analysis using an LDA-NLP approach'', {\it International Conference on Complex Systems}, 2011.
+
+\bibitem{FST13} Thomas L. Griffiths and Mark Steyvers, ``Finding scientific topics'', {\it Proceedings of the National academy of Sciences}, vol.~101, suppl 1, 2004 pages 5228--5235.
+
+\bibitem{GUPTA09} Gupta, Sonal. ``Finding bias in political news and blog websites'', 2009.
+
+\bibitem{VAD14} Clayton J. Hutto and Eric Gilbert, 
+   ``Vader: A parsimonious rule-based model for sentiment analysis of social media text.'', {\it  Eighth international AAAI conference on weblogs and social media}, Ann Arbor, MI, USA, June 2014.
+
+\bibitem{Lichman13} Lichman, M. (2013). {\it UCI Machine Learning Repository} \texttt{http://archive.ics.uci.edu/ml}. Irvine, CA: University of California, School of Information and Computer Science.
+
+\bibitem{BTM15} Joan Capdevila Pujol (Universitat Polyt\`{e}cnica de Catalunya), ``jcapde/Biterm: Biterm topic model'', {\it GitHub}, \texttt{https://github.com/jcapde/Biterm}, posted October 14, 2015, accessed May 24, 2017.
+
+\bibitem{RECASENS13} Recasens, Marta, Cristian Danescu-Niculescu-Mizil, and Dan Jurafsky, ``Linguistic Models for Analyzing and Detecting Biased Language'', {\it ACL (1).} 2013.
+
+\bibitem{STOCKING89} S. Holly Stocking and Paget H. Gross, {\it How Do Journalists Think? A proposal for the study of cognitive bias in newsmaking}, ERIC Clearinghouse on Reading and Communication Skills, 2805 E. 10th St., Smith Research Center, Suite 150, Bloomington, IN 47405, 1989.
+
+\bibitem{BTM13} Xiaohui Yan, Jiafeng Guo, Yanyan Lan and Xueqi Cheng, 
    ``A Biterm Topic Model for Short Texts'', {\it Proceedings of the 22nd international conference on 
    World Wide Web}, ACM, 2013, pages 1445--1456.
 
-  \bibitem{LDA03} D. M. Blei, A. Y. Ng and M. I. Jordan, ``Latent Dirichlet Allocation'' {\it Journal of machine Learning research},  Jan. (2003), pp.~993--1022.
-   
-   \bibitem{FST13} Thomas L. Griffiths and Mark Steyvers, 
-   ``Finding scientific topics'', {\it Proceedings of the National academy of Sciences}, vol.~101, suppl 1, 2004 pages 5228--5235.
-   
-   \bibitem{VAD14} Clayton J. Hutto and Eric Gilbert, 
-   ``Vader: A parsimonious rule-based model for sentiment analysis of social media text.'', {\it  Eighth international AAAI conference on weblogs and social media}, Ann Arbor, MI, USA, June 2014.
-   
-   \bibitem{NLTK09} Steven Bird, Ewan Klein and Edward Loper. {\it Natural language processing with Python: analyzing text with the natural language toolkit}, ``O'Reilly Media, Inc.'', 2009.
-   
-   \bibitem{BTM15} Joan Capdevila Pujol (Universitat Polyt\`{e}cnica de Catalunya), ``jcapde/Biterm: Biterm topic model'', {\it GitHub}, \texttt{https://github.com/jcapde/Biterm}, posted October 14, 2015, accessed May 24, 2017.
 
-   \bibitem{STOCKING89} S. Holly Stocking and Paget H. Gross, {\it How Do Journalists Think? A proposal for the study of cognitive bias in newsmaking}, ERIC Clearinghouse on Reading and Communication Skills, 2805 E. 10th St., Smith Research Center, Suite 150, Bloomington, IN 47405, 1989.
    
-   \bibitem{RECASENS13} Recasens, Marta, Cristian Danescu-Niculescu-Mizil, and Dan Jurafsky, ``Linguistic Models for Analyzing and Detecting Biased Language'', {\it ACL (1).} 2013.
-   
-   \bibitem{GUPTA09} Gupta, Sonal. ``Finding bias in political news and blog websites'', 2009.
 
   % Book
   %\bibitem{ImABook} Joe Author, {\it Joe's Book About Stuff}, Publisher Press,
